@@ -17,8 +17,10 @@ entity sprite_renderer is
         instances  : in  sprite_inst_array_t;
 
         -- Sprite sheet ROM interface
-        sprite_addr      : out unsigned(15 downto 0);
-        sprite_valid     : out std_logic
+        sprite_addr_top    : out unsigned(15 downto 0);
+        sprite_valid_top   : out std_logic;
+        sprite_addr_under  : out unsigned(15 downto 0);
+        sprite_valid_under : out std_logic
     );
 end sprite_renderer;
 
@@ -33,10 +35,16 @@ begin
         variable pixel_offset_v: integer;
         variable sprite_addr_v : integer;
         variable x_max, y_max  : unsigned(9 downto 0);
+        variable found_top   : boolean;
+        variable found_under : boolean;
     begin
         if rising_edge(clk25) then
-            sprite_valid <= '0';
-            sprite_addr  <= (others => '0');
+            sprite_valid_top   <= '0';
+            sprite_valid_under <= '0';
+            sprite_addr_top    <= (others => '0');
+            sprite_addr_under  <= (others => '0');
+            found_top   := false;
+            found_under := false;
 
             if video_on = '1' then
                 for i in 0 to NUM_INSTANCES-1 loop
@@ -62,9 +70,16 @@ begin
 
                             sprite_addr_v := sprite_base_v + pixel_offset_v;
 
-                            sprite_addr  <= to_unsigned(sprite_addr_v, sprite_addr'length);
-                            sprite_valid <= '1';
-                            exit;
+                            if not found_top then
+                                sprite_addr_top  <= to_unsigned(sprite_addr_v, sprite_addr_top'length);
+                                sprite_valid_top <= '1';
+                                found_top := true;
+                            elsif not found_under then
+                                sprite_addr_under  <= to_unsigned(sprite_addr_v, sprite_addr_under'length);
+                                sprite_valid_under <= '1';
+                                found_under := true;
+                                exit;
+                            end if;
                         end if;
                     end if;
                 end loop;

@@ -68,3 +68,13 @@
     <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="490915" HostCore="22" HostMemory="32258388">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="537719" HostCore="22" HostMemory="32258388">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="577095" HostCore="22" HostMemory="32258388">
+    </Process>
+</ProcessHandle>

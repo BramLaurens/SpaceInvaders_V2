@@ -68,24 +68,38 @@ architecture RTL of top is
     signal render_instances : sprite_inst_array_t;
     signal uart_bram : uart_bram_t;
 
-    signal sprite_addr      : unsigned(15 downto 0);
-    signal sprite_pixel_idx : unsigned(7 downto 0);
-    signal sprite_valid     : std_logic;
+    signal sprite_addr_top      : unsigned(15 downto 0);
+    signal sprite_addr_under    : unsigned(15 downto 0);
+    signal sprite_pixel_idx_top : unsigned(7 downto 0);
+    signal sprite_pixel_idx_under : unsigned(7 downto 0);
+    signal sprite_valid_top     : std_logic;
+    signal sprite_valid_under   : std_logic;
 
     -- Palette ROM
-    signal palette_addr       : unsigned(4 downto 0);
-    signal rgb444 : std_logic_vector(11 downto 0);
-    signal rgb444_unsigned : unsigned(11 downto 0);
+    signal palette_addr_top     : unsigned(4 downto 0);
+    signal palette_addr_under   : unsigned(4 downto 0);
+    signal rgb444_top           : std_logic_vector(11 downto 0);
+    signal rgb444_under         : std_logic_vector(11 downto 0);
+    signal rgb444_top_unsigned  : unsigned(11 downto 0);
+    signal rgb444_under_unsigned: unsigned(11 downto 0);
 
     -- Pipeline alignment for synchronous ROMs
-    signal sprite_valid_d1     : std_logic := '0';
-    signal sprite_valid_d2     : std_logic := '0';
-    signal sprite_valid_d3     : std_logic := '0';
-    signal sprite_valid_d4     : std_logic := '0';
-    signal sprite_pixel_idx_d1 : unsigned(7 downto 0) := (others => '0');
-    signal sprite_pixel_idx_d2 : unsigned(7 downto 0) := (others => '0');
-    signal sprite_pixel_idx_d3 : unsigned(7 downto 0) := (others => '0');
-    signal sprite_pixel_idx_d4 : unsigned(7 downto 0) := (others => '0');
+    signal sprite_valid_top_d1     : std_logic := '0';
+    signal sprite_valid_top_d2     : std_logic := '0';
+    signal sprite_valid_top_d3     : std_logic := '0';
+    signal sprite_valid_top_d4     : std_logic := '0';
+    signal sprite_valid_under_d1   : std_logic := '0';
+    signal sprite_valid_under_d2   : std_logic := '0';
+    signal sprite_valid_under_d3   : std_logic := '0';
+    signal sprite_valid_under_d4   : std_logic := '0';
+    signal sprite_pixel_idx_top_d1   : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_top_d2   : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_top_d3   : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_top_d4   : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_under_d1 : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_under_d2 : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_under_d3 : unsigned(7 downto 0) := (others => '0');
+    signal sprite_pixel_idx_under_d4 : unsigned(7 downto 0) := (others => '0');
     signal video_on_d1         : std_logic := '0';
     signal video_on_d2         : std_logic := '0';
     signal video_on_d3         : std_logic := '0';
@@ -154,10 +168,10 @@ begin
     -- Drive BRAM port-B address (prevents undriven-net synthesis errors)
     int_mem_addr_b <= std_logic_vector(bram_addr_cnt);
 
-    -- Feed sprite palette index into the palette ROM address.
-    -- sprite_pixel_idx is already a registered BRAM output; it is stable for the
-    -- full cycle before the next clock edge, so this meets palette ROM setup.
-    palette_addr <= sprite_pixel_idx(4 downto 0);
+    -- Feed sprite palette indices into the palette ROM addresses.
+    -- Each palette ROM is synchronous; address is stable for the full cycle.
+    palette_addr_top   <= sprite_pixel_idx_top(4 downto 0);
+    palette_addr_under <= sprite_pixel_idx_under(4 downto 0);
     clk100_out <= clk;
 
     ------------------------------------------------------------------
@@ -193,30 +207,48 @@ begin
             hcount           => hcount_d4,
             vcount           => vcount_d4,
             instances        => render_instances,
-            sprite_addr      => sprite_addr,
-            sprite_valid     => sprite_valid
+            sprite_addr_top    => sprite_addr_top,
+            sprite_valid_top   => sprite_valid_top,
+            sprite_addr_under  => sprite_addr_under,
+            sprite_valid_under => sprite_valid_under
         );
 
     ------------------------------------------------------------------
     -- Sprite sheet rom
     ------------------------------------------------------------------
-    sprite_sheet_rom_inst : entity work.blk_mem_gen_0
+    sprite_sheet_rom_top_inst : entity work.blk_mem_gen_0
         port map (
             clka  => clk25_out,
             ena   => '1',                         -- IMPORTANT
-            addra => std_logic_vector(sprite_addr),
-            douta => sprite_pixel_idx
+            addra => std_logic_vector(sprite_addr_top),
+            douta => sprite_pixel_idx_top
+        );
+
+    sprite_sheet_rom_under_inst : entity work.blk_mem_gen_0
+        port map (
+            clka  => clk25_out,
+            ena   => '1',
+            addra => std_logic_vector(sprite_addr_under),
+            douta => sprite_pixel_idx_under
         );
 
     ------------------------------------------------------------------
     -- Palette ROM
     ------------------------------------------------------------------
-    palette_rom_inst : entity work.blk_mem_gen_1
+    palette_rom_top_inst : entity work.blk_mem_gen_1
         port map (
             clka  => clk25_out,
             ena   => '1',
-            addra => std_logic_vector(palette_addr),
-            douta => rgb444_unsigned
+            addra => std_logic_vector(palette_addr_top),
+            douta => rgb444_top_unsigned
+        );
+
+    palette_rom_under_inst : entity work.blk_mem_gen_1
+        port map (
+            clka  => clk25_out,
+            ena   => '1',
+            addra => std_logic_vector(palette_addr_under),
+            douta => rgb444_under_unsigned
         );
     ------------------------------------------------------------------
     -- Instance of UART BRAM
@@ -247,7 +279,8 @@ begin
             mem_data_in_a     => int_mem_data_in_a
         );
 
-    rgb444 <= std_logic_vector(rgb444_unsigned);
+    rgb444_top   <= std_logic_vector(rgb444_top_unsigned);
+    rgb444_under <= std_logic_vector(rgb444_under_unsigned);
 
     ------------------------------------------------------------------
     -- Process to create all sprite instances and link them to UART BRAM
@@ -393,14 +426,24 @@ begin
             -- sprite_sheet_rom and palette_rom are synchronous (registered) reads.
             -- Palette output corresponds to sprite_pixel_idx delayed by 1 cycle,
             -- and sprite_valid delayed by 3 cycles (extra stage before BRAM).
-            sprite_valid_d1 <= sprite_valid;
-            sprite_valid_d2 <= sprite_valid_d1;
-            sprite_valid_d3 <= sprite_valid_d2;
-            sprite_valid_d4 <= sprite_valid_d3;
-            sprite_pixel_idx_d1 <= sprite_pixel_idx;        -- after sprite ROM
-            sprite_pixel_idx_d2 <= sprite_pixel_idx_d1;
-            sprite_pixel_idx_d3 <= sprite_pixel_idx_d2;
-            sprite_pixel_idx_d4 <= sprite_pixel_idx_d3;
+            sprite_valid_top_d1 <= sprite_valid_top;
+            sprite_valid_top_d2 <= sprite_valid_top_d1;
+            sprite_valid_top_d3 <= sprite_valid_top_d2;
+            sprite_valid_top_d4 <= sprite_valid_top_d3;
+            
+            sprite_valid_under_d1 <= sprite_valid_under;
+            sprite_valid_under_d2 <= sprite_valid_under_d1;
+            sprite_valid_under_d3 <= sprite_valid_under_d2;
+            sprite_valid_under_d4 <= sprite_valid_under_d3;
+
+            sprite_pixel_idx_top_d1 <= sprite_pixel_idx_top;        -- after sprite ROM
+            sprite_pixel_idx_top_d2 <= sprite_pixel_idx_top_d1;
+            sprite_pixel_idx_top_d3 <= sprite_pixel_idx_top_d2;
+            sprite_pixel_idx_top_d4 <= sprite_pixel_idx_top_d3;
+            sprite_pixel_idx_under_d1 <= sprite_pixel_idx_under;
+            sprite_pixel_idx_under_d2 <= sprite_pixel_idx_under_d1;
+            sprite_pixel_idx_under_d3 <= sprite_pixel_idx_under_d2;
+            sprite_pixel_idx_under_d4 <= sprite_pixel_idx_under_d3;
 
             video_on_d1 <= video_on;
             video_on_d2 <= video_on_d1;
@@ -420,12 +463,21 @@ begin
             VGA_HS <= hsync_d4;
             VGA_VS <= vsync_d4;
 
-            if video_on_d4 = '1' and
-                sprite_valid_d4 = '1' and
-                sprite_pixel_idx_d2 /= 0 then
-                VGA_R <= rgb444(11 downto 8);
-                VGA_G <= rgb444(7 downto 4);
-                VGA_B <= rgb444(3 downto 0);
+            if video_on_d4 = '1' then
+                -- 2-layer compositing: top sprite wins unless its pixel is transparent (index 0).
+                if sprite_valid_top_d4 = '1' and sprite_pixel_idx_top_d2 /= 0 then
+                    VGA_R <= rgb444_top(11 downto 8);
+                    VGA_G <= rgb444_top(7 downto 4);
+                    VGA_B <= rgb444_top(3 downto 0);
+                elsif sprite_valid_under_d4 = '1' and sprite_pixel_idx_under_d2 /= 0 then
+                    VGA_R <= rgb444_under(11 downto 8);
+                    VGA_G <= rgb444_under(7 downto 4);
+                    VGA_B <= rgb444_under(3 downto 0);
+                else
+                    VGA_R <= (others => '0');
+                    VGA_G <= (others => '0');
+                    VGA_B <= (others => '0');
+                end if;
             else
                 VGA_R <= (others => '0');
                 VGA_G <= (others => '0');
