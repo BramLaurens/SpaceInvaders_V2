@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../P2B_Sprites.srcs/sources_1/new/sprite_pkg.vhd" \
+"../../../../P2B_Sprites.srcs/sim_1/new/tb_roms.vhd" \
+
+# Do not sort compile order
+nosort

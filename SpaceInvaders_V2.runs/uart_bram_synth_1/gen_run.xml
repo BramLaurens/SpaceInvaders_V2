@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="uart_bram_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1768330676">
+  <File Type="VDS-TIMINGSUMMARY" Name="uart_bram_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="uart_bram.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="uart_bram_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="uart_bram_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="uart_bram_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="uart_bram.vds"/>
+  <File Type="REPORTS-TCL" Name="uart_bram_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="uart_bram_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="uart_bram.tcl"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart_bram" RelGenDir="$PGENDIR/uart_bram">
+    <File Path="$PSRCDIR/sources_1/ip/uart_bram/uart_bram.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="uart_bram"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart_bram" RelGenDir="$PGENDIR/uart_bram">
+    <File Path="$PSRCDIR/sources_1/ip/uart_bram/uart_bram.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="uart_bram"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/vgadriver.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>
