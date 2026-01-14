@@ -1,14 +1,16 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: HU Electrical Engineering
+-- Engineer: Bram Laurens
 -- 
 -- Create Date: 01/08/2026 06:04:06 PM
--- Design Name: 
+-- Design Name: Space Invaders FPGA
 -- Module Name: top - RTL
--- Project Name: 
--- Target Devices: 
+-- Project Name: Space Invaders
+-- Target Devices: Artix 7 (FPGA on Basys 3)
 -- Tool Versions: 
--- Description: 
+-- Description: This is the top-level module for the Space Invaders FPGA implementation. 
+-- It integrates all components including VGA output, sprite rendering, and UART communication.
+-- It also handles the generation of sprite instances based on UART commands and overlays HUD text.
 -- 
 -- Dependencies: 
 -- 
@@ -88,18 +90,22 @@ architecture RTL of top is
     signal sprite_valid_top_d2     : std_logic := '0';
     signal sprite_valid_top_d3     : std_logic := '0';
     signal sprite_valid_top_d4     : std_logic := '0';
+
     signal sprite_valid_under_d1   : std_logic := '0';
     signal sprite_valid_under_d2   : std_logic := '0';
     signal sprite_valid_under_d3   : std_logic := '0';
     signal sprite_valid_under_d4   : std_logic := '0';
+
     signal sprite_pixel_idx_top_d1   : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_top_d2   : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_top_d3   : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_top_d4   : unsigned(7 downto 0) := (others => '0');
+
     signal sprite_pixel_idx_under_d1 : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_under_d2 : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_under_d3 : unsigned(7 downto 0) := (others => '0');
     signal sprite_pixel_idx_under_d4 : unsigned(7 downto 0) := (others => '0');
+
     signal video_on_d1         : std_logic := '0';
     signal video_on_d2         : std_logic := '0';
     signal video_on_d3         : std_logic := '0';
@@ -146,20 +152,32 @@ architecture RTL of top is
     signal uart_word_d1     : std_logic_vector(31 downto 0) := (others => '0');
 
     -- HUD text: reserve a few instance slots for fixed overlay text.
-    -- Character sprites: A..Z are indices 16..41.
+    -- Character sprites: A..Z are index 16..41.
     constant CHAR_BASE_ID : integer := 16;
     constant HUD_SCORE_LEN : integer := 5;
     constant HUD_SCORE_X0  : integer := 400 - (HUD_SCORE_LEN * SPRITE_SIZE);
     constant HUD_SCORE_Y0  : integer := 0;
-    constant HUD_SCORE_I0  : integer := NUM_INSTANCES - HUD_SCORE_LEN; -- last 5 slots
+    constant HUD_SCORE_I0  : integer := NUM_INSTANCES - HUD_SCORE_LEN; -- Gebruik de laatste 5 instance slots
 
+    -- Function to convert character to sprite ID
     function char_to_sprite_id(ch : character) return unsigned is
-        variable idx : integer;
+    variable idx : integer;
     begin
-        idx := character'pos(ch) - character'pos('A');
-        if (idx < 0) or (idx > 25) then
-            idx := 0;
+        -- Default to 'A'
+        idx := 0;
+
+        -- Letters A-Z
+        if (ch >= 'A') and (ch <= 'Z') then
+            -- Calculate character index using standard enumerated ASCII positions
+            idx := character'pos(ch) - character'pos('A');
+
+        -- Digits 0-9 (after Z)
+        elsif (ch >= '0') and (ch <= '9') then
+            -- Calculate index for digits starting after letters, again using enumerated ASCII positions
+            idx := 26 + (character'pos(ch) - character'pos('0'));
         end if;
+
+        -- Return the corresponding sprite ID, by adding the calculated index to the base ID
         return to_unsigned(CHAR_BASE_ID + idx, 6);
     end function;
 
@@ -216,6 +234,8 @@ begin
     ------------------------------------------------------------------
     -- Sprite sheet rom
     ------------------------------------------------------------------
+    -- We use two separate instances for top and under layers to allow
+    -- simultaneous access in one clock cycle for 2-layer compositing.
     sprite_sheet_rom_top_inst : entity work.blk_mem_gen_0
         port map (
             clka  => clk25_out,
@@ -235,6 +255,7 @@ begin
     ------------------------------------------------------------------
     -- Palette ROM
     ------------------------------------------------------------------
+    -- We again use two separate instances for top and under layers.
     palette_rom_top_inst : entity work.blk_mem_gen_1
         port map (
             clka  => clk25_out,
@@ -279,6 +300,7 @@ begin
             mem_data_in_a     => int_mem_data_in_a
         );
 
+    -- Convert palette ROM outputs to std_logic_vector for VGA output
     rgb444_top   <= std_logic_vector(rgb444_top_unsigned);
     rgb444_under <= std_logic_vector(rgb444_under_unsigned);
 
@@ -298,12 +320,11 @@ begin
         variable x_helper : signed(9 downto 0);
     begin
         if rising_edge(clk25_out) then
-            -- Register BRAM port-B output (otherwise instances never update)
 
             -- Read UART BRAM and decode into sprite instances
             tmp := game_instances;  -- start from previous state
 
-            -- Only refresh sprite instances during vertical blank to avoid tearing
+            -- Only refresh sprite instances during vertical blank to avoid tearing and artifactng
             -- (player sprite can otherwise change mid-frame and look "half drawn").
             if vcount >= to_unsigned(480, vcount'length) then
                 -- Decode UART BRAM entry (aligned with `int_mem_data_out_b`)
@@ -314,23 +335,40 @@ begin
                 obj_y_pos   := unsigned(int_mem_data_out_b(29 downto 21));
                 obj_y_sign  := int_mem_data_out_b(30);
 
+                -- Update sprite instances based on OBJ ID, returned from UART BRAM
+                -- First we check for enemy rows (OBJ ID 1-5)
                 if ((obj_ID >= 1) and (obj_ID <= 5)) then
+                    -- For each enemy row loop iteration, we loop over the columns to set up individual enemy instances
+                    -- Each enemy in the row uses a different instance slot, we calculate its instance index with:
+                    -- (obj_ID-1)*ENEMY_COLS + (col-1)
                     for col in 1 to ENEMY_COLS loop
+                        -- Set sprite ID from OBJ ID (sprites 1-5 match object IDs so we can use that directly)
+                        -- Also set visibility from 6 render bits
                         tmp((obj_ID-1)*ENEMY_COLS + col).sprite_id := to_unsigned(obj_ID, 6);
                         tmp((obj_ID-1)*ENEMY_COLS + col).visible := obj_render(5 - (col-1));
+
+                        -- Calculate X position with spacing, taking into account sign bit
                         if obj_x_sign = '1' then
+                            -- We need to avoid negative unsigned values, so use signed arithmetic first using x helper, then convert back
                             x_helper := -signed(std_logic_vector(obj_x_pos)) + to_signed((col-1) * ENEMY_X_SPACING, 10);
                             if x_helper < 0 then
+                                -- Clamp to 0 if negative
                                 tmp((obj_ID-1)*ENEMY_COLS + col).x := (others => '0');
                             else
+                                -- Convert X position back to unsigned, and assign to instance
                                 tmp((obj_ID-1)*ENEMY_COLS + col).x := unsigned(std_logic_vector(x_helper));
                             end if;
                         else
+                            -- For positive X position, just add spacing directly and assign to instance record x attribute
                             tmp((obj_ID-1)*ENEMY_COLS + col).x := obj_x_pos + to_unsigned((col-1) * ENEMY_X_SPACING, 10);
                         end if;
+                        -- Y position is base Y plus row spacing, Y will always be positive
                         tmp((obj_ID-1)*ENEMY_COLS + col).y := resize(obj_y_pos, 10) + to_unsigned((obj_ID-1) * ENEMY_Y_SPACING, 10);
                     end loop;
                 else
+                    -- Player ship (OBJ ID 0)
+                    -- We always use instance slot 0 for the player ship
+                    -- Visibility is in render bit 0-5 so we can use any of them, here we use bit 0
                     if obj_ID = 0 then
                         tmp(0).sprite_id := to_unsigned(0, 6);
                         tmp(0).visible := obj_render(0);
@@ -339,6 +377,8 @@ begin
                     end if;
 
                     -- Bullet down (OBJ ID 6)
+                    -- We use instance slot 32 for bullet down
+                    -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
                     if obj_ID = 6 then
                         tmp(32).sprite_id := to_unsigned(6, 6);
                         tmp(32).visible := obj_render(0);
@@ -347,6 +387,8 @@ begin
                     end if;
 
                     -- Bullet up (OBJ ID 7)
+                    -- We use instance slot 33 for bullet up
+                    -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
                     if obj_ID = 7 then
                         tmp(33).sprite_id := to_unsigned(7, 6);
                         tmp(33).visible := obj_render(0);
@@ -357,7 +399,8 @@ begin
                 end if;
             end if;
 
-            -- increment BRAM address counter
+            -- increment BRAM address counter to go to next UART BRAM entry
+            -- Wrap around at max depth
             if bram_addr_cnt = to_unsigned(UART_BRAM_DEPTH-1, bram_addr_cnt'length) then
                 bram_addr_cnt <= (others => '0');
             else
@@ -376,9 +419,15 @@ begin
     hud_gen : process(clk25_out)
         variable tmp : sprite_inst_array_t;
     begin
+        -- On each clock, start from game instances we already have
         tmp := game_instances;
 
         -- Fixed "SCORE" text at top-right (640x480), each char 32x32.
+        -- We start at the score index we defned earlier and use 5 instance slots, we increment index for each character.
+        -- We calcuate the X position based on character index to space them correctly.
+        -- The Y position is fixed.
+        -- We set visibility to '1' for all characters.
+        -- We calculate the sprite ID using the char_to_sprite_id function we made earlier.
         tmp(HUD_SCORE_I0 + 0).x        := to_unsigned(HUD_SCORE_X0 + (0 * SPRITE_SIZE), 10);
         tmp(HUD_SCORE_I0 + 0).y        := to_unsigned(HUD_SCORE_Y0, 10);
         tmp(HUD_SCORE_I0 + 0).sprite_id:= char_to_sprite_id('S');
@@ -413,6 +462,11 @@ begin
     begin
         if rising_edge(clk25_out) then
 
+            -- Pipeline hcount/vcount for alignment with sprite ROM and palette ROM outputs
+            -- these are needed for final VGA output timing as we have multiple stages of
+            -- registers in between and memory reads which add latency.
+            -- We need 4 stages to align with the final palette output stage.
+            -- These stages are applied to hcount/vcount inputs to sprite renderer as well.
             hcount_d1 <= hcount;
             hcount_d2 <= hcount_d1;
             hcount_d3 <= hcount_d2;
@@ -430,7 +484,7 @@ begin
             sprite_valid_top_d2 <= sprite_valid_top_d1;
             sprite_valid_top_d3 <= sprite_valid_top_d2;
             sprite_valid_top_d4 <= sprite_valid_top_d3;
-            
+
             sprite_valid_under_d1 <= sprite_valid_under;
             sprite_valid_under_d2 <= sprite_valid_under_d1;
             sprite_valid_under_d3 <= sprite_valid_under_d2;
@@ -440,6 +494,7 @@ begin
             sprite_pixel_idx_top_d2 <= sprite_pixel_idx_top_d1;
             sprite_pixel_idx_top_d3 <= sprite_pixel_idx_top_d2;
             sprite_pixel_idx_top_d4 <= sprite_pixel_idx_top_d3;
+
             sprite_pixel_idx_under_d1 <= sprite_pixel_idx_under;
             sprite_pixel_idx_under_d2 <= sprite_pixel_idx_under_d1;
             sprite_pixel_idx_under_d3 <= sprite_pixel_idx_under_d2;
@@ -464,7 +519,11 @@ begin
             VGA_VS <= vsync_d4;
 
             if video_on_d4 = '1' then
-                -- 2-layer compositing: top sprite wins unless its pixel is transparent (index 0).
+                -- Here we do 2-layer compositing:
+                -- If top layer pixel is valid and not transparent (palette index 0), use that
+                -- else if top layer pixel is 000 (transparent), check under layer:
+                -- if under layer pixel is valid and not transparent, use that
+                -- else output black (0,0,0)
                 if sprite_valid_top_d4 = '1' and sprite_pixel_idx_top_d2 /= 0 then
                     VGA_R <= rgb444_top(11 downto 8);
                     VGA_G <= rgb444_top(7 downto 4);
@@ -479,6 +538,7 @@ begin
                     VGA_B <= (others => '0');
                 end if;
             else
+                -- Outside visible area, output black
                 VGA_R <= (others => '0');
                 VGA_G <= (others => '0');
                 VGA_B <= (others => '0');
