@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
 -- Date        : Tue Jan 13 20:49:12 2026
 -- Host        : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.gen/sources_1/ip/uart_bram/uart_bram_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top uart_bram -prefix
+--               uart_bram_ uart_bram_stub.vhdl
 -- Design      : uart_bram
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcpg236-1

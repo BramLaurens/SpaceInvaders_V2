@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="575691" HostCore="22" HostMemory="32258388">
+    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="16511" HostCore="22" HostMemory="32258380">
     </Process>
 </ProcessHandle>

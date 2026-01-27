@@ -159,6 +159,11 @@ architecture RTL of top is
     constant HUD_SCORE_Y0  : integer := 0;
     constant HUD_SCORE_I0  : integer := NUM_INSTANCES - HUD_SCORE_LEN; -- Gebruik de laatste 5 instance slots
 
+    constant HUD_SCORE_DIGITS_LEN : integer := 6; -- Max 6 digits for score display
+    constant HUD_SCORE_DIGITS_X0 : integer := 640 - (HUD_SCORE_DIGITS_LEN * SPRITE_SIZE);
+    constant HUD_SCORE_DIGITS_Y0 : integer := 0;
+    constant HUD_SCORE_DIGITS_I0 : integer := HUD_SCORE_I0 - HUD_SCORE_DIGITS_LEN; -- Use slots before "SCORE" text
+
     -- Function to convert character to sprite ID
     function char_to_sprite_id(ch : character) return unsigned is
     variable idx : integer;
@@ -318,6 +323,8 @@ begin
         variable obj_y_pos : unsigned(8 downto 0);
         variable obj_y_sign : std_logic;
         variable x_helper : signed(9 downto 0);
+        variable score : integer range 0 to 999999 := 123456;
+        variable digit_value : integer range 0 to 9;
     begin
         if rising_edge(clk25_out) then
 
@@ -363,7 +370,7 @@ begin
                             tmp((obj_ID-1)*ENEMY_COLS + col).x := obj_x_pos + to_unsigned((col-1) * ENEMY_X_SPACING, 10);
                         end if;
                         -- Y position is base Y plus row spacing, Y will always be positive
-                        tmp((obj_ID-1)*ENEMY_COLS + col).y := resize(obj_y_pos, 10) + to_unsigned((obj_ID-1) * ENEMY_Y_SPACING, 10);
+                        tmp((obj_ID-1)*ENEMY_COLS + col).y := resize(obj_y_pos, 10);
                     end loop;
                 else
                     -- Player ship (OBJ ID 0)
@@ -376,25 +383,54 @@ begin
                         tmp(0).y := resize(obj_y_pos, 10);
                     end if;
 
-                    -- Bullet down (OBJ ID 6)
-                    -- We use instance slot 32 for bullet down
-                    -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
-                    if obj_ID = 6 then
-                        tmp(32).sprite_id := to_unsigned(6, 6);
-                        tmp(32).visible := obj_render(0);
-                        tmp(32).x := obj_x_pos;
-                        tmp(32).y := resize(obj_y_pos, 10);
+                    if (obj_ID >= 6) and (obj_ID <= 9) then                         -- Bullets (OBJ_ID 6 t/m 9)
+                        if obj_render(1) = '1' then
+                            tmp(32 + obj_ID-6).sprite_id := to_unsigned(6, 6);      -- Bullet down
+                        else
+                            tmp(32 + obj_ID-6).sprite_id := to_unsigned(7, 6);      -- Bullet up
+                        end if;
+
+                        tmp(32 + obj_ID-6).visible := obj_render(0);
+                        tmp(32 + obj_ID-6).x := obj_x_pos;
+                        tmp(32 + obj_ID-6).y := resize(obj_y_pos, 10);
+
                     end if;
 
-                    -- Bullet up (OBJ ID 7)
-                    -- We use instance slot 33 for bullet up
-                    -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
-                    if obj_ID = 7 then
-                        tmp(33).sprite_id := to_unsigned(7, 6);
-                        tmp(33).visible := obj_render(0);
-                        tmp(33).x := obj_x_pos;
-                        tmp(33).y := resize(obj_y_pos, 10);
+                    -- Score number (OBJ ID 15), we combine the x pos and y pos vectors to read the score integer
+                    if (obj_ID = 15) then                             -- SCORE NUMBER
+                        score := to_integer(unsigned(int_mem_data_out_b(19 downto 10))) * 10 + to_integer(unsigned(int_mem_data_out_b(29 downto 21)));
+                        
+                        -- Now we need to split the score into individual digits and assign to HUD score digit instances
+                        for digit_idx in 0 to HUD_SCORE_DIGITS_LEN-1 loop
+                            digit_value := score mod 10;  -- Get least significant digit
+                            score := score / 10;          -- Remove least significant digit
+                            tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).sprite_id := char_to_sprite_id(character'val(character'pos('0') + digit_value));
+                            tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).visible := '1';
+                            tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).x := to_unsigned(HUD_SCORE_DIGITS_X0 + ((HUD_SCORE_DIGITS_LEN-1 - digit_idx) * SPRITE_SIZE), 10);
+                            tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).y := to_unsigned(HUD_SCORE_DIGITS_Y0, 10);
+                        end loop;
                     end if;
+
+
+                    -- -- Bullet down (OBJ ID 6)
+                    -- -- We use instance slot 32 for bullet down
+                    -- -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
+                    -- if obj_ID = 6 then
+                    --     tmp(32).sprite_id := to_unsigned(6, 6);
+                    --     tmp(32).visible := obj_render(0);
+                    --     tmp(32).x := obj_x_pos;
+                    --     tmp(32).y := resize(obj_y_pos, 10);
+                    -- end if;
+
+                    -- -- Bullet up (OBJ ID 7)
+                    -- -- We use instance slot 33 for bullet up
+                    -- -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
+                    -- if obj_ID = 7 then
+                    --     tmp(33).sprite_id := to_unsigned(7, 6);
+                    --     tmp(33).visible := obj_render(0);
+                    --     tmp(33).x := obj_x_pos;
+                    --     tmp(33).y := resize(obj_y_pos, 10);
+                    -- end if;
 
                 end if;
             end if;
