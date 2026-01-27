@@ -398,7 +398,7 @@ begin
 
                     -- Score number (OBJ ID 15), we combine the x pos and y pos vectors to read the score integer
                     if (obj_ID = 15) then                             -- SCORE NUMBER
-                        score := to_integer(unsigned(int_mem_data_out_b(19 downto 10))) * 10 + to_integer(unsigned(int_mem_data_out_b(29 downto 21)));
+                        score := to_integer(unsigned(obj_x_pos & obj_y_pos));  -- Combine to get full score value
                         
                         -- Now we need to split the score into individual digits and assign to HUD score digit instances
                         for digit_idx in 0 to HUD_SCORE_DIGITS_LEN-1 loop
