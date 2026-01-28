@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date             : Wed Jan 28 19:35:35 2026
+| Date             : Wed Jan 28 20:49:10 2026
 | Host             : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -52,17 +52,17 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.002 |        3 |       --- |             --- |
-| Slice Logic              |     0.028 |     9852 |       --- |             --- |
-|   LUT as Logic           |     0.026 |     4887 |     20800 |           23.50 |
-|   CARRY4                 |     0.002 |     1232 |      8150 |           15.12 |
-|   Register               |    <0.001 |     2324 |     41600 |            5.59 |
+| Clocks                   |     0.001 |        3 |       --- |             --- |
+| Slice Logic              |     0.028 |    10127 |       --- |             --- |
+|   LUT as Logic           |     0.026 |     4970 |     20800 |           23.89 |
+|   CARRY4                 |     0.002 |     1251 |      8150 |           15.35 |
+|   Register               |    <0.001 |     2379 |     41600 |            5.72 |
 |   LUT as Distributed RAM |    <0.001 |       19 |      9600 |            0.20 |
 |   LUT as Shift Register  |    <0.001 |       17 |      9600 |            0.18 |
-|   F7/F8 Muxes            |    <0.001 |       52 |     32600 |            0.16 |
+|   F7/F8 Muxes            |    <0.001 |       58 |     32600 |            0.18 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |       99 |       --- |             --- |
-| Signals                  |     0.038 |     7905 |       --- |             --- |
+|   Others                 |     0.000 |       91 |       --- |             --- |
+| Signals                  |     0.038 |     8082 |       --- |             --- |
 | Block RAM                |     0.002 |     28.5 |        50 |           57.00 |
 | I/O                      |     0.010 |       16 |       106 |           15.09 |
 | Static Power             |     0.073 |          |           |                 |
@@ -146,12 +146,12 @@ Table of Contents
 | Name                   | Power (W) |
 +------------------------+-----------+
 | top                    |     0.079 |
-|   command_handler_inst |     0.003 |
+|   command_handler_inst |     0.002 |
 |     IC1                |     0.002 |
 |   sprite_renderer_inst |     0.022 |
-|   uart_bram_inst       |     0.006 |
-|     U0                 |     0.006 |
-|       inst_blk_mem_gen |     0.006 |
+|   uart_bram_inst       |     0.005 |
+|     U0                 |     0.005 |
+|       inst_blk_mem_gen |     0.005 |
 |   vga_timing_inst      |     0.003 |
 +------------------------+-----------+
 

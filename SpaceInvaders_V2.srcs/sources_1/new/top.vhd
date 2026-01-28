@@ -153,6 +153,8 @@ architecture RTL of top is
 
     -- Game over flag (mirrors engine state; no edge latch)
     signal game_over_active : std_logic := '0';
+    signal game_won_active : std_logic := '0';
+    signal game_pause_active : std_logic := '0';
 
     -- HUD text: reserve a few instance slots for fixed overlay text.
     -- Character sprites: A..Z are index 16..41.
@@ -167,17 +169,29 @@ architecture RTL of top is
     constant HUD_SCORE_DIGITS_Y0 : integer := 0;
     constant HUD_SCORE_DIGITS_I0 : integer := HUD_SCORE_I0 - HUD_SCORE_DIGITS_LEN; -- Use slots before "SCORE" text
 
+    -- Center overlay text (GAME OVER / YOU WON / GAME PAUSED)
+    -- We reserve enough instance slots for the longest string we show.
+    constant HUD_OVERLAY_LEN : integer := 11; -- "GAME" + space + "PAUSED"
+    constant HUD_OVERLAY_Y0  : integer := (480 - SPRITE_SIZE) / 2;
+    constant HUD_OVERLAY_I0  : integer := HUD_SCORE_DIGITS_I0 - HUD_OVERLAY_LEN; -- Use slots before score digits
+
     -- "GAME OVER" text overlay (uses character sprites only; one slot reserved for a space)
     constant HUD_GAMEOVER_LEN : integer := 9; -- "GAME" + space + "OVER"
     constant HUD_GAMEOVER_X0  : integer := (640 - (HUD_GAMEOVER_LEN * SPRITE_SIZE)) / 2;
-    constant HUD_GAMEOVER_Y0  : integer := (480 - SPRITE_SIZE) / 2;
-    constant HUD_GAMEOVER_I0  : integer := HUD_SCORE_DIGITS_I0 - HUD_GAMEOVER_LEN; -- Use slots before score digits
+
+    -- "GAME PAUSED" text overlay
+    constant HUD_PAUSED_LEN : integer := 11; -- "GAME" + space + "PAUSED"
+    constant HUD_PAUSED_X0  : integer := (640 - (HUD_PAUSED_LEN * SPRITE_SIZE)) / 2;
+
+    -- "YOU WON" text overlay (reuses same reserved slots as GAME OVER; 7 chars incl. space)
+    constant HUD_GAMEWON_LEN : integer := 7; -- "YOU" + space + "WON"
+    constant HUD_GAMEWON_X0  : integer := (640 - (HUD_GAMEWON_LEN * SPRITE_SIZE)) / 2;
 
     -- Health HUD: up to 3 hearts at upper-left
     constant HUD_HEARTS_LEN : integer := 3;
     constant HUD_HEARTS_X0  : integer := 0;
     constant HUD_HEARTS_Y0  : integer := 0;
-    constant HUD_HEARTS_I0  : integer := HUD_GAMEOVER_I0 - HUD_HEARTS_LEN; -- Use slots before GAME OVER
+    constant HUD_HEARTS_I0  : integer := HUD_OVERLAY_I0 - HUD_HEARTS_LEN; -- Use slots before center overlay
 
     -- Player lives are encoded in obj_render bits corresponding to absolute bits 6 and 5
     -- (obj_render is BRAM bits 9 downto 4 => absolute bit 5 -> obj_render(1), bit 6 -> obj_render(2))
@@ -444,7 +458,9 @@ begin
                     -- Score number (OBJ ID 15), we combine the x pos and y pos vectors to read the score integer
                     if (obj_ID = 15) then                             -- SCORE NUMBER
                         -- Game-over flag is bit 2 of obj_render (obj_render is bits 9 downto 4 from BRAM)
+                        game_pause_active <= obj_render(0);
                         game_over_active <= obj_render(1);
+                        game_won_active <= obj_render(2);
 
                         score_word := obj_x_pos & obj_y_pos;  -- 10-bit X concatenated with 9-bit Y
                         score := to_integer(score_word);
@@ -548,57 +564,153 @@ begin
             tmp(HUD_SCORE_I0 + 4).sprite_id:= char_to_sprite_id('E');
             tmp(HUD_SCORE_I0 + 4).visible  := '1';
 
-            -- Default: hide GAME OVER overlay
-            for i in 0 to HUD_GAMEOVER_LEN-1 loop
-                tmp(HUD_GAMEOVER_I0 + i).visible := '0';
+            -- Default: hide center overlay text
+            for i in 0 to HUD_OVERLAY_LEN-1 loop
+                tmp(HUD_OVERLAY_I0 + i).visible := '0';
             end loop;
 
             -- Show GAME OVER when engine flag is high (no edge latch)
             if game_over_active = '1' then
-                tmp(HUD_GAMEOVER_I0 + 0).x         := to_unsigned(HUD_GAMEOVER_X0 + (0 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 0).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 0).sprite_id := char_to_sprite_id('G');
-                tmp(HUD_GAMEOVER_I0 + 0).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 0).x         := to_unsigned(HUD_GAMEOVER_X0 + (0 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 0).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 0).sprite_id := char_to_sprite_id('G');
+                tmp(HUD_OVERLAY_I0 + 0).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 1).x         := to_unsigned(HUD_GAMEOVER_X0 + (1 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 1).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 1).sprite_id := char_to_sprite_id('A');
-                tmp(HUD_GAMEOVER_I0 + 1).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 1).x         := to_unsigned(HUD_GAMEOVER_X0 + (1 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 1).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 1).sprite_id := char_to_sprite_id('A');
+                tmp(HUD_OVERLAY_I0 + 1).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 2).x         := to_unsigned(HUD_GAMEOVER_X0 + (2 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 2).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 2).sprite_id := char_to_sprite_id('M');
-                tmp(HUD_GAMEOVER_I0 + 2).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 2).x         := to_unsigned(HUD_GAMEOVER_X0 + (2 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 2).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 2).sprite_id := char_to_sprite_id('M');
+                tmp(HUD_OVERLAY_I0 + 2).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 3).x         := to_unsigned(HUD_GAMEOVER_X0 + (3 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 3).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 3).sprite_id := char_to_sprite_id('E');
-                tmp(HUD_GAMEOVER_I0 + 3).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 3).x         := to_unsigned(HUD_GAMEOVER_X0 + (3 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 3).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 3).sprite_id := char_to_sprite_id('E');
+                tmp(HUD_OVERLAY_I0 + 3).visible   := '1';
 
                 -- Slot 4 is a space: keep invisible but still advances X position
-                tmp(HUD_GAMEOVER_I0 + 4).x         := to_unsigned(HUD_GAMEOVER_X0 + (4 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 4).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 4).visible   := '0';
+                tmp(HUD_OVERLAY_I0 + 4).x         := to_unsigned(HUD_GAMEOVER_X0 + (4 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 4).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 4).visible   := '0';
 
-                tmp(HUD_GAMEOVER_I0 + 5).x         := to_unsigned(HUD_GAMEOVER_X0 + (5 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 5).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 5).sprite_id := char_to_sprite_id('O');
-                tmp(HUD_GAMEOVER_I0 + 5).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 5).x         := to_unsigned(HUD_GAMEOVER_X0 + (5 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 5).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 5).sprite_id := char_to_sprite_id('O');
+                tmp(HUD_OVERLAY_I0 + 5).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 6).x         := to_unsigned(HUD_GAMEOVER_X0 + (6 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 6).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 6).sprite_id := char_to_sprite_id('V');
-                tmp(HUD_GAMEOVER_I0 + 6).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 6).x         := to_unsigned(HUD_GAMEOVER_X0 + (6 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 6).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 6).sprite_id := char_to_sprite_id('V');
+                tmp(HUD_OVERLAY_I0 + 6).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 7).x         := to_unsigned(HUD_GAMEOVER_X0 + (7 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 7).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 7).sprite_id := char_to_sprite_id('E');
-                tmp(HUD_GAMEOVER_I0 + 7).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 7).x         := to_unsigned(HUD_GAMEOVER_X0 + (7 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 7).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 7).sprite_id := char_to_sprite_id('E');
+                tmp(HUD_OVERLAY_I0 + 7).visible   := '1';
 
-                tmp(HUD_GAMEOVER_I0 + 8).x         := to_unsigned(HUD_GAMEOVER_X0 + (8 * SPRITE_SIZE), 10);
-                tmp(HUD_GAMEOVER_I0 + 8).y         := to_unsigned(HUD_GAMEOVER_Y0, 10);
-                tmp(HUD_GAMEOVER_I0 + 8).sprite_id := char_to_sprite_id('R');
-                tmp(HUD_GAMEOVER_I0 + 8).visible   := '1';
+                tmp(HUD_OVERLAY_I0 + 8).x         := to_unsigned(HUD_GAMEOVER_X0 + (8 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 8).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 8).sprite_id := char_to_sprite_id('R');
+                tmp(HUD_OVERLAY_I0 + 8).visible   := '1';
+            elsif game_won_active = '1' then
+                -- Reuse the same instance slots as GAME OVER to display "YOU WON".
+                tmp(HUD_OVERLAY_I0 + 0).x         := to_unsigned(HUD_GAMEWON_X0 + (0 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 0).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 0).sprite_id := char_to_sprite_id('Y');
+                tmp(HUD_OVERLAY_I0 + 0).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 1).x         := to_unsigned(HUD_GAMEWON_X0 + (1 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 1).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 1).sprite_id := char_to_sprite_id('O');
+                tmp(HUD_OVERLAY_I0 + 1).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 2).x         := to_unsigned(HUD_GAMEWON_X0 + (2 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 2).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 2).sprite_id := char_to_sprite_id('U');
+                tmp(HUD_OVERLAY_I0 + 2).visible   := '1';
+
+                -- Slot 3 is a space
+                tmp(HUD_OVERLAY_I0 + 3).x         := to_unsigned(HUD_GAMEWON_X0 + (3 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 3).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 3).visible   := '0';
+
+                tmp(HUD_OVERLAY_I0 + 4).x         := to_unsigned(HUD_GAMEWON_X0 + (4 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 4).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 4).sprite_id := char_to_sprite_id('W');
+                tmp(HUD_OVERLAY_I0 + 4).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 5).x         := to_unsigned(HUD_GAMEWON_X0 + (5 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 5).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 5).sprite_id := char_to_sprite_id('O');
+                tmp(HUD_OVERLAY_I0 + 5).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 6).x         := to_unsigned(HUD_GAMEWON_X0 + (6 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 6).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 6).sprite_id := char_to_sprite_id('N');
+                tmp(HUD_OVERLAY_I0 + 6).visible   := '1';
+
+                -- Hide remaining unused slots
+                tmp(HUD_OVERLAY_I0 + 7).visible   := '0';
+                tmp(HUD_OVERLAY_I0 + 8).visible   := '0';
+            elsif game_pause_active = '1' then
+                -- Display "GAME PAUSED" centered.
+                tmp(HUD_OVERLAY_I0 + 0).x         := to_unsigned(HUD_PAUSED_X0 + (0 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 0).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 0).sprite_id := char_to_sprite_id('G');
+                tmp(HUD_OVERLAY_I0 + 0).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 1).x         := to_unsigned(HUD_PAUSED_X0 + (1 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 1).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 1).sprite_id := char_to_sprite_id('A');
+                tmp(HUD_OVERLAY_I0 + 1).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 2).x         := to_unsigned(HUD_PAUSED_X0 + (2 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 2).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 2).sprite_id := char_to_sprite_id('M');
+                tmp(HUD_OVERLAY_I0 + 2).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 3).x         := to_unsigned(HUD_PAUSED_X0 + (3 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 3).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 3).sprite_id := char_to_sprite_id('E');
+                tmp(HUD_OVERLAY_I0 + 3).visible   := '1';
+
+                -- Slot 4 is a space
+                tmp(HUD_OVERLAY_I0 + 4).x         := to_unsigned(HUD_PAUSED_X0 + (4 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 4).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 4).visible   := '0';
+
+                tmp(HUD_OVERLAY_I0 + 5).x         := to_unsigned(HUD_PAUSED_X0 + (5 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 5).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 5).sprite_id := char_to_sprite_id('P');
+                tmp(HUD_OVERLAY_I0 + 5).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 6).x         := to_unsigned(HUD_PAUSED_X0 + (6 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 6).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 6).sprite_id := char_to_sprite_id('A');
+                tmp(HUD_OVERLAY_I0 + 6).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 7).x         := to_unsigned(HUD_PAUSED_X0 + (7 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 7).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 7).sprite_id := char_to_sprite_id('U');
+                tmp(HUD_OVERLAY_I0 + 7).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 8).x         := to_unsigned(HUD_PAUSED_X0 + (8 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 8).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 8).sprite_id := char_to_sprite_id('S');
+                tmp(HUD_OVERLAY_I0 + 8).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 9).x         := to_unsigned(HUD_PAUSED_X0 + (9 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 9).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 9).sprite_id := char_to_sprite_id('E');
+                tmp(HUD_OVERLAY_I0 + 9).visible   := '1';
+
+                tmp(HUD_OVERLAY_I0 + 10).x         := to_unsigned(HUD_PAUSED_X0 + (10 * SPRITE_SIZE), 10);
+                tmp(HUD_OVERLAY_I0 + 10).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
+                tmp(HUD_OVERLAY_I0 + 10).sprite_id := char_to_sprite_id('D');
+                tmp(HUD_OVERLAY_I0 + 10).visible   := '1';
             end if;
 
             render_instances <= tmp;

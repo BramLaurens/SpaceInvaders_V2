@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2025.1
-| Date         : Wed Jan 28 19:35:18 2026
+| Date         : Wed Jan 28 20:48:52 2026
 | Host         : bram-laurens-ROG-Zephyrus-G16-GU605MI
 | Design       : design_1
 | Device       : xc7a35t-cpg236-1--
