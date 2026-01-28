@@ -444,7 +444,7 @@ begin
                     -- Score number (OBJ ID 15), we combine the x pos and y pos vectors to read the score integer
                     if (obj_ID = 15) then                             -- SCORE NUMBER
                         -- Game-over flag is bit 2 of obj_render (obj_render is bits 9 downto 4 from BRAM)
-                        game_over_active <= obj_render(2);
+                        game_over_active <= obj_render(1);
 
                         score_word := obj_x_pos & obj_y_pos;  -- 10-bit X concatenated with 9-bit Y
                         score := to_integer(score_word);
