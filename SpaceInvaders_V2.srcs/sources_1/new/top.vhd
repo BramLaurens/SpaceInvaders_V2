@@ -205,6 +205,20 @@ architecture RTL of top is
     signal enemy_prev_y_pos : enemy_prev_y_arr_t := (others => (others => '0'));
     signal enemy_anim_up    : std_logic_vector(1 to ENEMY_ROWS) := (others => '0');
 
+    -- Enemy death explosion (briefly render sprite 14 at the enemy's last location)
+    constant ENEMY_INSTANCES : integer := ENEMY_ROWS * ENEMY_COLS;
+    constant EXPLOSION_SPRITE_ID : integer := 14;
+    constant EXPLOSION_FRAMES : unsigned(3 downto 0) := to_unsigned(8, 4); -- ~8 frames
+
+    type enemy_expl_timer_arr_t is array (1 to ENEMY_INSTANCES) of unsigned(3 downto 0);
+    type enemy_expl_pos_arr_t   is array (1 to ENEMY_INSTANCES) of unsigned(9 downto 0);
+    signal enemy_expl_timer : enemy_expl_timer_arr_t := (others => (others => '0'));
+    signal enemy_expl_x     : enemy_expl_pos_arr_t := (others => (others => '0'));
+    signal enemy_expl_y     : enemy_expl_pos_arr_t := (others => (others => '0'));
+
+    -- Track previous alive (BRAM render bit) per enemy, so explosion triggers only once.
+    signal enemy_alive_prev : std_logic_vector(1 to ENEMY_INSTANCES) := (others => '0');
+
     -- Function to convert character to sprite ID
     function char_to_sprite_id(ch : character) return unsigned is
     variable idx : integer;
@@ -368,8 +382,33 @@ begin
         variable score_word : unsigned(18 downto 0) := (others => '0');
         variable score : integer range 0 to 999999 := 123456;
         variable digit_value : integer range 0 to 9;
+
+        -- Explosion bookkeeping (kept in signals, updated once per clock)
+        variable expl_timer_v : enemy_expl_timer_arr_t;
+        variable expl_x_v     : enemy_expl_pos_arr_t;
+        variable expl_y_v     : enemy_expl_pos_arr_t;
+        variable alive_prev_v : std_logic_vector(1 to ENEMY_INSTANCES);
+        variable enemy_idx    : integer range 1 to ENEMY_INSTANCES;
+        variable new_visible  : std_logic;
+        variable computed_x   : unsigned(9 downto 0);
+        variable computed_y   : unsigned(9 downto 0);
     begin
         if rising_edge(clk25_out) then
+
+            -- Start from previous explosion state
+            expl_timer_v := enemy_expl_timer;
+            expl_x_v := enemy_expl_x;
+            expl_y_v := enemy_expl_y;
+            alive_prev_v := enemy_alive_prev;
+
+            -- Decrement explosion timers once per frame (at the start of vertical blank)
+            if (vcount = to_unsigned(480, vcount'length)) and (hcount = to_unsigned(0, hcount'length)) then
+                for i in 1 to ENEMY_INSTANCES loop
+                    if expl_timer_v(i) /= to_unsigned(0, expl_timer_v(i)'length) then
+                        expl_timer_v(i) := expl_timer_v(i) - 1;
+                    end if;
+                end loop;
+            end if;
 
             -- Read UART BRAM and decode into sprite instances
             tmp := game_instances;  -- start from previous state
@@ -405,28 +444,51 @@ begin
                     -- Each enemy in the row uses a different instance slot, we calculate its instance index with:
                     -- (obj_ID-1)*ENEMY_COLS + (col-1)
                     for col in 1 to ENEMY_COLS loop
-                        -- Set sprite ID from OBJ ID (sprites 1-5 match object IDs so we can use that directly)
-                        -- Also set visibility from 6 render bits
-                        tmp((obj_ID-1)*ENEMY_COLS + col).sprite_id := to_unsigned(enemy_sprite_id, 6);
-                        tmp((obj_ID-1)*ENEMY_COLS + col).visible := obj_render(5 - (col-1));
+                        enemy_idx := (obj_ID-1)*ENEMY_COLS + col;
 
-                        -- Calculate X position with spacing, taking into account sign bit
+                        -- Compute absolute X/Y for this enemy instance
                         if obj_x_sign = '1' then
-                            -- We need to avoid negative unsigned values, so use signed arithmetic first using x helper, then convert back
                             x_helper := -signed(std_logic_vector(obj_x_pos)) + to_signed((col-1) * ENEMY_X_SPACING, 10);
                             if x_helper < 0 then
-                                -- Clamp to 0 if negative
-                                tmp((obj_ID-1)*ENEMY_COLS + col).x := (others => '0');
+                                computed_x := (others => '0');
                             else
-                                -- Convert X position back to unsigned, and assign to instance
-                                tmp((obj_ID-1)*ENEMY_COLS + col).x := unsigned(std_logic_vector(x_helper));
+                                computed_x := unsigned(std_logic_vector(x_helper));
                             end if;
                         else
-                            -- For positive X position, just add spacing directly and assign to instance record x attribute
-                            tmp((obj_ID-1)*ENEMY_COLS + col).x := obj_x_pos + to_unsigned((col-1) * ENEMY_X_SPACING, 10);
+                            computed_x := obj_x_pos + to_unsigned((col-1) * ENEMY_X_SPACING, 10);
                         end if;
-                        -- Y position is base Y plus row spacing, Y will always be positive
-                        tmp((obj_ID-1)*ENEMY_COLS + col).y := resize(obj_y_pos, 10);
+                        computed_y := resize(obj_y_pos, 10);
+
+                        -- Set sprite ID from OBJ ID (sprites 1-5 match object IDs so we can use that directly)
+                        -- Also set visibility from 6 render bits
+                        new_visible := obj_render(5 - (col-1));
+
+                        -- Detect enemy disappearance (1 -> 0) and start explosion
+                        -- Use BRAM visibility edge, not tmp.visible (which we may force high during explosion).
+                        if (alive_prev_v(enemy_idx) = '1') and (new_visible = '0') then
+                            expl_timer_v(enemy_idx) := EXPLOSION_FRAMES;
+                            expl_x_v(enemy_idx) := computed_x;
+                            expl_y_v(enemy_idx) := computed_y;
+                        elsif new_visible = '1' then
+                            -- If an enemy becomes visible again (new wave), cancel any pending explosion
+                            expl_timer_v(enemy_idx) := (others => '0');
+                        end if;
+
+                        -- Update alive history
+                        alive_prev_v(enemy_idx) := new_visible;
+
+                        -- Render: explosion overrides dead enemy slot briefly
+                        if expl_timer_v(enemy_idx) /= to_unsigned(0, expl_timer_v(enemy_idx)'length) then
+                            tmp(enemy_idx).sprite_id := to_unsigned(EXPLOSION_SPRITE_ID, 6);
+                            tmp(enemy_idx).visible := '1';
+                            tmp(enemy_idx).x := expl_x_v(enemy_idx);
+                            tmp(enemy_idx).y := expl_y_v(enemy_idx);
+                        else
+                            tmp(enemy_idx).sprite_id := to_unsigned(enemy_sprite_id, 6);
+                            tmp(enemy_idx).visible := new_visible;
+                            tmp(enemy_idx).x := computed_x;
+                            tmp(enemy_idx).y := computed_y;
+                        end if;
                     end loop;
                 else
                     -- Player ship (OBJ ID 0)
@@ -510,6 +572,12 @@ begin
 
             -- Update output instances for sprite renderer
             game_instances <= tmp;
+
+            -- Commit explosion state
+            enemy_expl_timer <= expl_timer_v;
+            enemy_expl_x <= expl_x_v;
+            enemy_expl_y <= expl_y_v;
+            enemy_alive_prev <= alive_prev_v;
         end if;
         
     end process; 
