@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date             : Wed Jan 28 18:35:57 2026
+| Date             : Wed Jan 28 19:26:19 2026
 | Host             : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.151        |
+| Total On-Chip Power (W)  | 0.152        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.078        |
+| Dynamic (W)              | 0.079        |
 | Device Static (W)        | 0.073        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.2         |
@@ -49,24 +49,25 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+-------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
-+-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.002 |        3 |       --- |             --- |
-| Slice Logic             |     0.027 |     9753 |       --- |             --- |
-|   LUT as Logic          |     0.025 |     4869 |     20800 |           23.41 |
-|   CARRY4                |     0.002 |     1230 |      8150 |           15.09 |
-|   Register              |    <0.001 |     2272 |     41600 |            5.46 |
-|   LUT as Shift Register |    <0.001 |       17 |      9600 |            0.18 |
-|   F7/F8 Muxes           |    <0.001 |       52 |     32600 |            0.16 |
-|   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
-|   Others                |     0.000 |       96 |       --- |             --- |
-| Signals                 |     0.037 |     7774 |       --- |             --- |
-| Block RAM               |     0.002 |     28.5 |        50 |           57.00 |
-| I/O                     |     0.010 |       16 |       106 |           15.09 |
-| Static Power            |     0.073 |          |           |                 |
-| Total                   |     0.151 |          |           |                 |
-+-------------------------+-----------+----------+-----------+-----------------+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.001 |        3 |       --- |             --- |
+| Slice Logic              |     0.027 |     9852 |       --- |             --- |
+|   LUT as Logic           |     0.025 |     4891 |     20800 |           23.51 |
+|   CARRY4                 |     0.002 |     1232 |      8150 |           15.12 |
+|   Register               |    <0.001 |     2324 |     41600 |            5.59 |
+|   LUT as Distributed RAM |    <0.001 |       19 |      9600 |            0.20 |
+|   LUT as Shift Register  |    <0.001 |       17 |      9600 |            0.18 |
+|   F7/F8 Muxes            |    <0.001 |       52 |     32600 |            0.16 |
+|   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
+|   Others                 |     0.000 |       99 |       --- |             --- |
+| Signals                  |     0.038 |     7905 |       --- |             --- |
+| Block RAM                |     0.002 |     28.5 |        50 |           57.00 |
+| I/O                      |     0.010 |       16 |       106 |           15.09 |
+| Static Power             |     0.073 |          |           |                 |
+| Total                    |     0.152 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -75,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.078 |       0.068 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.080 |       0.069 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -141,20 +142,17 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-----------------------------+-----------+
-| Name                        | Power (W) |
-+-----------------------------+-----------+
-| top                         |     0.078 |
-|   command_handler_inst      |     0.003 |
-|     IC1                     |     0.002 |
-|   sprite_renderer_inst      |     0.022 |
-|   sprite_sheet_rom_top_inst |     0.001 |
-|     U0                      |     0.001 |
-|       inst_blk_mem_gen      |     0.001 |
-|   uart_bram_inst            |     0.005 |
-|     U0                      |     0.005 |
-|       inst_blk_mem_gen      |     0.005 |
-|   vga_timing_inst           |     0.002 |
-+-----------------------------+-----------+
++------------------------+-----------+
+| Name                   | Power (W) |
++------------------------+-----------+
+| top                    |     0.079 |
+|   command_handler_inst |     0.002 |
+|     IC1                |     0.002 |
+|   sprite_renderer_inst |     0.022 |
+|   uart_bram_inst       |     0.006 |
+|     U0                 |     0.006 |
+|       inst_blk_mem_gen |     0.006 |
+|   vga_timing_inst      |     0.003 |
++------------------------+-----------+
 
 

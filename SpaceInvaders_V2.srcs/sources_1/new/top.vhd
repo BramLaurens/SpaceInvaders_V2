@@ -183,6 +183,14 @@ architecture RTL of top is
     -- (obj_render is BRAM bits 9 downto 4 => absolute bit 5 -> obj_render(1), bit 6 -> obj_render(2))
     signal player_lives_bits : unsigned(1 downto 0) := (others => '0');
 
+    -- Enemy animation: toggle between arms-down (1..5) and arms-up (9..13) on each row position change.
+    -- Track previous X/Y per row so we flip exactly once per movement update.
+    type enemy_prev_x_arr_t is array (1 to ENEMY_ROWS) of unsigned(9 downto 0);
+    type enemy_prev_y_arr_t is array (1 to ENEMY_ROWS) of unsigned(8 downto 0);
+    signal enemy_prev_x_pos : enemy_prev_x_arr_t := (others => (others => '0'));
+    signal enemy_prev_y_pos : enemy_prev_y_arr_t := (others => (others => '0'));
+    signal enemy_anim_up    : std_logic_vector(1 to ENEMY_ROWS) := (others => '0');
+
     -- Function to convert character to sprite ID
     function char_to_sprite_id(ch : character) return unsigned is
     variable idx : integer;
@@ -342,6 +350,8 @@ begin
         variable obj_y_pos : unsigned(8 downto 0);
         variable obj_y_sign : std_logic;
         variable x_helper : signed(9 downto 0);
+        variable enemy_sprite_id : integer range 0 to 63;
+        variable score_word : unsigned(18 downto 0) := (others => '0');
         variable score : integer range 0 to 999999 := 123456;
         variable digit_value : integer range 0 to 9;
     begin
@@ -364,13 +374,26 @@ begin
                 -- Update sprite instances based on OBJ ID, returned from UART BRAM
                 -- First we check for enemy rows (OBJ ID 1-5)
                 if ((obj_ID >= 1) and (obj_ID <= 5)) then
+                    -- Flip animation state if this row's position changed (X or Y)
+                    if (obj_x_pos /= enemy_prev_x_pos(obj_ID)) or (obj_y_pos /= enemy_prev_y_pos(obj_ID)) then
+                        enemy_prev_x_pos(obj_ID) <= obj_x_pos;
+                        enemy_prev_y_pos(obj_ID) <= obj_y_pos;
+                        enemy_anim_up(obj_ID) <= not enemy_anim_up(obj_ID);
+                    end if;
+
+                    if enemy_anim_up(obj_ID) = '1' then
+                        enemy_sprite_id := obj_ID + 8; -- 1->9, 2->10, ...
+                    else
+                        enemy_sprite_id := obj_ID;
+                    end if;
+
                     -- For each enemy row loop iteration, we loop over the columns to set up individual enemy instances
                     -- Each enemy in the row uses a different instance slot, we calculate its instance index with:
                     -- (obj_ID-1)*ENEMY_COLS + (col-1)
                     for col in 1 to ENEMY_COLS loop
                         -- Set sprite ID from OBJ ID (sprites 1-5 match object IDs so we can use that directly)
                         -- Also set visibility from 6 render bits
-                        tmp((obj_ID-1)*ENEMY_COLS + col).sprite_id := to_unsigned(obj_ID, 6);
+                        tmp((obj_ID-1)*ENEMY_COLS + col).sprite_id := to_unsigned(enemy_sprite_id, 6);
                         tmp((obj_ID-1)*ENEMY_COLS + col).visible := obj_render(5 - (col-1));
 
                         -- Calculate X position with spacing, taking into account sign bit
@@ -423,7 +446,8 @@ begin
                         -- Game-over flag is bit 2 of obj_render (obj_render is bits 9 downto 4 from BRAM)
                         game_over_active <= obj_render(2);
 
-                        score := to_integer(unsigned(obj_x_pos & obj_y_pos));  -- Combine to get full score value
+                        score_word := obj_x_pos & obj_y_pos;  -- 10-bit X concatenated with 9-bit Y
+                        score := to_integer(score_word);
                         
                         -- Now we need to split the score into individual digits and assign to HUD score digit instances
                         for digit_idx in 0 to HUD_SCORE_DIGITS_LEN-1 loop

@@ -90,6 +90,8 @@ add_files /home/bram-laurens/SpaceInvaders_V2/sheets/spritesheetv6.coe
 add_files /home/bram-laurens/SpaceInvaders_V2/sheets/palettev6.coe
 add_files /home/bram-laurens/SpaceInvaders_V2/sheets/palettev7.coe
 add_files /home/bram-laurens/SpaceInvaders_V2/sheets/spritesheetv7.coe
+add_files /home/bram-laurens/SpaceInvaders_V2/sheets/spritesheetv8.coe
+add_files /home/bram-laurens/SpaceInvaders_V2/sheets/palettev8.coe
 read_mem {
   /home/bram-laurens/P2B_Sprites/sheets/spritesheet.mem
   /home/bram-laurens/P2B_Sprites/sheets/palette.mem
