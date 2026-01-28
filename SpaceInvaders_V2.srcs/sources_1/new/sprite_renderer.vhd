@@ -70,8 +70,9 @@ begin
 
             -- Only process if video is on
             if video_on = '1' then
-                -- Loop through all sprite instances, to find which sprites cover the current pixel
-                for i in 0 to NUM_INSTANCES-1 loop
+                -- Loop through all sprite instances, to find which sprites cover the current pixel.
+                -- Priority: higher instance index is rendered on top.
+                for i in NUM_INSTANCES-1 downto 0 loop
                     -- If this instance is visible, check if it covers the current pixel
                     if instances(i).visible = '1' then
                         -- Calculate sprite boundaries based on current instance position and sprite size

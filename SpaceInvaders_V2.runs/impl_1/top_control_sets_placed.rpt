@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date         : Wed Jan 28 21:28:26 2026
+| Date         : Wed Jan 28 21:40:06 2026
 | Host         : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    62 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   217 |
+| Unused register locations in slices containing registers |   221 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            1447 |          676 |
+| No           | No                    | No                     |            1443 |          696 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              83 |           26 |
 | Yes          | No                    | No                     |            1473 |          950 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             132 |           44 |
+| Yes          | Yes                   | No                     |             132 |           46 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,68 +73,68 @@ Table of Contents
 +-----------------+--------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+--------------+
 |   Clock Signal  |                         Enable Signal                        |                       Set/Reset Signal                       | Slice Load Count | Bel Load Count | Bels / Slice |
 +-----------------+--------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+--------------+
-|  clk25_out_BUFG | vga_timing_inst/v_cnt                                        | vga_timing_inst/v_cnt[9]_i_1_n_0                             |                1 |              3 |         3.00 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt                                        | vga_timing_inst/v_cnt[9]_i_1_n_0                             |                2 |              3 |         1.50 |
 |  clk25_out_BUFG |                                                              | bram_addr_cnt[3]_i_1_n_0                                     |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG  | command_handler_inst/IC1/E[0]                                |                                                              |                1 |              4 |         4.00 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[2][sprite_id][4]_i_6_1[0]     | vga_timing_inst/game_instances[8][sprite_id][4]_i_4_0[0]     |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[10][sprite_id][4]_i_5_0[0]    | vga_timing_inst/v_cnt_reg[5]_8[0]                            |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/E[0]                                         | vga_timing_inst/SR[0]                                        |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[16][sprite_id][4]_i_4_0[0]    | vga_timing_inst/v_cnt_reg[5]_6[0]                            |                2 |              5 |         2.50 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances[18][sprite_id][4]_i_4_0[0]    | vga_timing_inst/v_cnt_reg[5]_5[0]                            |                2 |              5 |         2.50 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances[18][sprite_id][4]_i_4_0[0]    | vga_timing_inst/v_cnt_reg[5]_5[0]                            |                3 |              5 |         1.67 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[22][sprite_id][4]_i_4_0[0]    | vga_timing_inst/v_cnt_reg[5]_9[0]                            |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[28][y][8]_i_4_0[0]            | vga_timing_inst/v_cnt_reg[5]_3[0]                            |                3 |              5 |         1.67 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[2][sprite_id][4]_i_6_0[0]     | vga_timing_inst/game_instances[24][sprite_id][4]_i_7_0[0]    |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances[2][sprite_id][4]_i_6_2[0]     | vga_timing_inst/v_cnt_reg[5]_7[0]                            |                2 |              5 |         2.50 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances[2][sprite_id][4]_i_7_0[0]     | vga_timing_inst/v_cnt_reg[5]_10[0]                           |                3 |              5 |         1.67 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances[2][sprite_id][4]_i_7_0[0]     | vga_timing_inst/v_cnt_reg[5]_10[0]                           |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_6[0]        | vga_timing_inst/v_cnt_reg[5]_13[0]                           |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG  |                                                              |                                                              |                4 |              5 |         1.25 |
 |  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_0[0]                            | vga_timing_inst/v_cnt_reg[5]_2[0]                            |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_1[0]                            | vga_timing_inst/bbstub_doutb[1]                              |                2 |              5 |         2.50 |
 |  clk25_out_BUFG | vga_timing_inst/v_cnt                                        |                                                              |                2 |              6 |         3.00 |
-|  clk25_out_BUFG |                                                              | game_over_active                                             |                6 |              8 |         1.33 |
-|  clk25_out_BUFG |                                                              | vga_timing_inst/v_cnt                                        |                4 |             10 |         2.50 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_4[0]                            |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_17[0]                           |                                                              |               10 |             19 |         1.90 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_12[0]                           |                                                              |               14 |             19 |         1.36 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_11[0]                           |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_1[0]                            |                                                              |               13 |             19 |         1.46 |
+|  clk25_out_BUFG |                                                              | game_over_active                                             |                7 |              8 |         1.14 |
+|  clk25_out_BUFG |                                                              | vga_timing_inst/v_cnt                                        |                3 |             10 |         3.33 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_4[0]                            |                                                              |                8 |             19 |         2.38 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_17[0]                           |                                                              |                9 |             19 |         2.11 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_12[0]                           |                                                              |               11 |             19 |         1.73 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_11[0]                           |                                                              |               11 |             19 |         1.73 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_1[0]                            |                                                              |               11 |             19 |         1.73 |
 |  clk25_out_BUFG | vga_timing_inst/p_2_in0_in                                   |                                                              |                5 |             19 |         3.80 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_9[0]        |                                                              |               11 |             19 |         1.73 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_9[0]        |                                                              |               13 |             19 |         1.46 |
 |  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_8[0]        |                                                              |               12 |             19 |         1.58 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_21[0]                           |                                                              |               10 |             19 |         1.90 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_11[0]       |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_10[0]       |                                                              |               13 |             19 |         1.46 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_28[0]                           |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_27[0]                           |                                                              |               12 |             19 |         1.58 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_26[0]                           |                                                              |               14 |             19 |         1.36 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_25[0]                           |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_24[0]                           |                                                              |                9 |             19 |         2.11 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_23[0]                           |                                                              |                5 |             19 |         3.80 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_18[0]                           |                                                              |               17 |             24 |         1.41 |
-|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_7[0]        |                                                              |               16 |             24 |         1.50 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_21[0]                           |                                                              |                9 |             19 |         2.11 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_11[0]       |                                                              |               12 |             19 |         1.58 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_10[0]       |                                                              |               12 |             19 |         1.58 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_28[0]                           |                                                              |               12 |             19 |         1.58 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_27[0]                           |                                                              |               11 |             19 |         1.73 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_26[0]                           |                                                              |                9 |             19 |         2.11 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_25[0]                           |                                                              |               11 |             19 |         1.73 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_24[0]                           |                                                              |               10 |             19 |         1.90 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_23[0]                           |                                                              |               10 |             19 |         1.90 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_18[0]                           |                                                              |               16 |             24 |         1.50 |
+|  clk25_out_BUFG | vga_timing_inst/game_instances_reg[30][y][8]_i_3_7[0]        |                                                              |               13 |             24 |         1.85 |
 |  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_22[0]                           |                                                              |               19 |             24 |         1.26 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_14[0]                           |                                                              |               19 |             24 |         1.26 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_14[0]                           |                                                              |               16 |             24 |         1.50 |
 |  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_20                              |                                                              |               18 |             24 |         1.33 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[27][x]                                   |                                                              |               18 |             24 |         1.33 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_19[0]                           |                                                              |               21 |             25 |         1.19 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[1][x]                                    |                                                              |               20 |             25 |         1.25 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[13][x]                                   |                                                              |               21 |             26 |         1.24 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[27][x]                                   |                                                              |               16 |             24 |         1.50 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_19[0]                           |                                                              |               20 |             25 |         1.25 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[1][x]                                    |                                                              |               17 |             25 |         1.47 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[13][x]                                   |                                                              |               16 |             26 |         1.62 |
 |  clk_IBUF_BUFG  |                                                              | command_handler_inst/IC1/H_stand_reg[2]_0                    |                7 |             29 |         4.14 |
-| ~clk_IBUF_BUFG  | command_handler_inst/IC1/data_out_hold_0                     |                                                              |               10 |             32 |         3.20 |
-| ~clk_IBUF_BUFG  | command_handler_inst/IC1/bit_cycle_current                   | command_handler_inst/IC1/bit_cycle_current[31]_i_1_n_0       |                7 |             32 |         4.57 |
+| ~clk_IBUF_BUFG  | command_handler_inst/IC1/data_out_hold_0                     |                                                              |               11 |             32 |         2.91 |
+| ~clk_IBUF_BUFG  | command_handler_inst/IC1/bit_cycle_current                   | command_handler_inst/IC1/bit_cycle_current[31]_i_1_n_0       |                8 |             32 |         4.00 |
 | ~clk_IBUF_BUFG  | command_handler_inst/IC1/teller0_inferred__0/i__carry__2_n_0 | command_handler_inst/IC1/bit_current[0]_i_1_n_0              |                8 |             32 |         4.00 |
 | ~clk_IBUF_BUFG  |                                                              | command_handler_inst/IC1/teller0_inferred__0/i__carry__2_n_0 |                8 |             32 |         4.00 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[53][sprite_id]                           |                                                              |               15 |             33 |         2.20 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[53][sprite_id]                           |                                                              |               19 |             33 |         1.74 |
 | ~clk_IBUF_BUFG  |                                                              |                                                              |               13 |             35 |         2.69 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_16[0]                           |                                                              |               32 |             43 |         1.34 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[4][x]                                    |                                                              |               26 |             43 |         1.65 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_16[0]                           |                                                              |               23 |             43 |         1.87 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[4][x]                                    |                                                              |               24 |             43 |         1.79 |
 |  clk25_out_BUFG | vga_timing_inst/tmp[6][x]                                    |                                                              |               25 |             43 |         1.72 |
-|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_15[0]                           |                                                              |               26 |             43 |         1.65 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[11][x]                                   |                                                              |               23 |             44 |         1.91 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[25][x]                                   |                                                              |               24 |             44 |         1.83 |
-|  clk25_out_BUFG | vga_timing_inst/tmp[29][x]                                   |                                                              |               30 |             44 |         1.47 |
-|  clk25_out_BUFG | vga_timing_inst/expl_x_v[1]                                  |                                                              |              399 |            570 |         1.43 |
-|  clk25_out_BUFG |                                                              |                                                              |              659 |           1432 |         2.17 |
+|  clk25_out_BUFG | vga_timing_inst/v_cnt_reg[5]_15[0]                           |                                                              |               23 |             43 |         1.87 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[11][x]                                   |                                                              |               24 |             44 |         1.83 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[25][x]                                   |                                                              |               28 |             44 |         1.57 |
+|  clk25_out_BUFG | vga_timing_inst/tmp[29][x]                                   |                                                              |               39 |             44 |         1.13 |
+|  clk25_out_BUFG | vga_timing_inst/expl_x_v[1]                                  |                                                              |              409 |            570 |         1.39 |
+|  clk25_out_BUFG |                                                              |                                                              |              679 |           1428 |         2.10 |
 +-----------------+--------------------------------------------------------------+--------------------------------------------------------------+------------------+----------------+--------------+
 
 
