@@ -203,15 +203,23 @@ architecture RTL of top is
     type enemy_prev_y_arr_t is array (1 to ENEMY_ROWS) of unsigned(8 downto 0);
     signal enemy_prev_x_pos : enemy_prev_x_arr_t := (others => (others => '0'));
     signal enemy_prev_y_pos : enemy_prev_y_arr_t := (others => (others => '0'));
+    -- Animation state per row
     signal enemy_anim_up    : std_logic_vector(1 to ENEMY_ROWS) := (others => '0');
 
     -- Enemy death explosion (briefly render sprite 14 at the enemy's last location)
     constant ENEMY_INSTANCES : integer := ENEMY_ROWS * ENEMY_COLS;
     constant EXPLOSION_SPRITE_ID : integer := 14;
-    constant EXPLOSION_FRAMES : unsigned(3 downto 0) := to_unsigned(8, 4); -- ~8 frames
+    -- How many frames to show explosion
+    constant EXPLOSION_FRAMES : unsigned(3 downto 0) := to_unsigned(8, 4); -- 8 frames
 
+    -- Explosion tracking signals
+    -- Create an array type with depth ENEMY_INSTANCES and elements of unsigned(3 downto 0) for timers (4 bits for 0..15)
+    -- Eeach enemy will have its own explosion timer
+    -- If the timer is non-zero, we render the explosion sprite instead of the enemy sprite
     type enemy_expl_timer_arr_t is array (1 to ENEMY_INSTANCES) of unsigned(3 downto 0);
+    -- Create an array type with depth ENEMY_INSTANCES and elements of unsigned(9 downto 0) for X/Y positions
     type enemy_expl_pos_arr_t   is array (1 to ENEMY_INSTANCES) of unsigned(9 downto 0);
+    -- Instantiate explosion timer arrays and position arrays
     signal enemy_expl_timer : enemy_expl_timer_arr_t := (others => (others => '0'));
     signal enemy_expl_x     : enemy_expl_pos_arr_t := (others => (others => '0'));
     signal enemy_expl_y     : enemy_expl_pos_arr_t := (others => (others => '0'));
@@ -388,7 +396,7 @@ begin
         variable expl_x_v     : enemy_expl_pos_arr_t;
         variable expl_y_v     : enemy_expl_pos_arr_t;
         variable alive_prev_v : std_logic_vector(1 to ENEMY_INSTANCES);
-        variable enemy_idx    : integer range 1 to ENEMY_INSTANCES;
+        variable enemy_index    : integer range 1 to ENEMY_INSTANCES;
         variable new_visible  : std_logic;
         variable computed_x   : unsigned(9 downto 0);
         variable computed_y   : unsigned(9 downto 0);
@@ -425,26 +433,29 @@ begin
                 obj_y_sign  := int_mem_data_out_b(30);
 
                 -- Update sprite instances based on OBJ ID, returned from UART BRAM
-                -- First we check for enemy rows (OBJ ID 1-5)
+                -- First we check for enemy rows 1-5 (OBJ ID 1-5)
                 if ((obj_ID >= 1) and (obj_ID <= 5)) then
-                    -- Flip animation state if this row's position changed (X or Y)
+                    -- Check if this enemy rows position has changed since last time
+                    -- If so, toggle animation frame
                     if (obj_x_pos /= enemy_prev_x_pos(obj_ID)) or (obj_y_pos /= enemy_prev_y_pos(obj_ID)) then
+                        -- Position changes, save current positions and toggle animation state
                         enemy_prev_x_pos(obj_ID) <= obj_x_pos;
                         enemy_prev_y_pos(obj_ID) <= obj_y_pos;
                         enemy_anim_up(obj_ID) <= not enemy_anim_up(obj_ID);
                     end if;
 
+                    -- Determine which of the two sprite IDs to use based on animation state
                     if enemy_anim_up(obj_ID) = '1' then
                         enemy_sprite_id := obj_ID + 8; -- 1->9, 2->10, ...
                     else
                         enemy_sprite_id := obj_ID;
                     end if;
 
-                    -- For each enemy row loop iteration, we loop over the columns to set up individual enemy instances
-                    -- Each enemy in the row uses a different instance slot, we calculate its instance index with:
+                    -- For each enemy row loop iteration, we loop over the columns to make individual enemy instances
+                    -- Each enemy in the row uses a different instance slot, we calculate its instance index with formula:
                     -- (obj_ID-1)*ENEMY_COLS + (col-1)
                     for col in 1 to ENEMY_COLS loop
-                        enemy_idx := (obj_ID-1)*ENEMY_COLS + col;
+                        enemy_index := (obj_ID-1)*ENEMY_COLS + col;
 
                         -- Compute absolute X/Y for this enemy instance
                         if obj_x_sign = '1' then
@@ -459,35 +470,36 @@ begin
                         end if;
                         computed_y := resize(obj_y_pos, 10);
 
-                        -- Set sprite ID from OBJ ID (sprites 1-5 match object IDs so we can use that directly)
+                        
                         -- Also set visibility from 6 render bits
                         new_visible := obj_render(5 - (col-1));
 
                         -- Detect enemy disappearance (1 -> 0) and start explosion
-                        -- Use BRAM visibility edge, not tmp.visible (which we may force high during explosion).
-                        if (alive_prev_v(enemy_idx) = '1') and (new_visible = '0') then
-                            expl_timer_v(enemy_idx) := EXPLOSION_FRAMES;
-                            expl_x_v(enemy_idx) := computed_x;
-                            expl_y_v(enemy_idx) := computed_y;
+                        if (alive_prev_v(enemy_index) = '1') and (new_visible = '0') then
+                            -- Set this enemy's explosion timer and position
+                            expl_timer_v(enemy_index) := EXPLOSION_FRAMES;
+                            expl_x_v(enemy_index) := computed_x;
+                            expl_y_v(enemy_index) := computed_y;
                         elsif new_visible = '1' then
-                            -- If an enemy becomes visible again (new wave), cancel any pending explosion
-                            expl_timer_v(enemy_idx) := (others => '0');
+                            -- If an enemy becomes visible again (new wave), cancel any pending explosion by setting timer to 0
+                            expl_timer_v(enemy_index) := (others => '0');
                         end if;
 
-                        -- Update alive history
-                        alive_prev_v(enemy_idx) := new_visible;
+                        -- Update alive history for this enemy instance
+                        alive_prev_v(enemy_index) := new_visible;
 
-                        -- Render: explosion overrides dead enemy slot briefly
-                        if expl_timer_v(enemy_idx) /= to_unsigned(0, expl_timer_v(enemy_idx)'length) then
-                            tmp(enemy_idx).sprite_id := to_unsigned(EXPLOSION_SPRITE_ID, 6);
-                            tmp(enemy_idx).visible := '1';
-                            tmp(enemy_idx).x := expl_x_v(enemy_idx);
-                            tmp(enemy_idx).y := expl_y_v(enemy_idx);
+                        -- Render: explosion overrides dead enemy instance slot for timer duration as long as timer > 0
+                        if expl_timer_v(enemy_index) /= to_unsigned(0, expl_timer_v(enemy_index)'length) then
+                            tmp(enemy_index).sprite_id := to_unsigned(EXPLOSION_SPRITE_ID, 6);
+                            tmp(enemy_index).visible := '1';
+                            tmp(enemy_index).x := expl_x_v(enemy_index);
+                            tmp(enemy_index).y := expl_y_v(enemy_index);
                         else
-                            tmp(enemy_idx).sprite_id := to_unsigned(enemy_sprite_id, 6);
-                            tmp(enemy_idx).visible := new_visible;
-                            tmp(enemy_idx).x := computed_x;
-                            tmp(enemy_idx).y := computed_y;
+                            -- Normal enemy rendering if the enemy instance explosion timer is 0
+                            tmp(enemy_index).sprite_id := to_unsigned(enemy_sprite_id, 6);
+                            tmp(enemy_index).visible := new_visible;
+                            tmp(enemy_index).x := computed_x;
+                            tmp(enemy_index).y := computed_y;
                         end if;
                     end loop;
                 else
@@ -504,13 +516,16 @@ begin
                         player_lives_bits <= unsigned(obj_render(2 downto 1));
                     end if;
 
+                    -- Decode bullets (OBJ ID 6-9)
                     if (obj_ID >= 6) and (obj_ID <= 9) then                         -- Bullets (OBJ_ID 6 t/m 9)
+                        -- We use obj_render(1) to distinguish bullet direction: 0 = down, 1 = up
                         if obj_render(1) = '1' then
                             tmp(32 + obj_ID-6).sprite_id := to_unsigned(6, 6);      -- Bullet down
                         else
                             tmp(32 + obj_ID-6).sprite_id := to_unsigned(7, 6);      -- Bullet up
                         end if;
 
+                        -- Set visibility and position for bullet instances
                         tmp(32 + obj_ID-6).visible := obj_render(0);
                         tmp(32 + obj_ID-6).x := obj_x_pos;
                         tmp(32 + obj_ID-6).y := resize(obj_y_pos, 10);
@@ -524,40 +539,27 @@ begin
                         game_over_active <= obj_render(1);
                         game_won_active <= obj_render(2);
 
-                        score_word := obj_x_pos & obj_y_pos;  -- 10-bit X concatenated with 9-bit Y
+                        score_word := obj_x_pos & obj_y_pos;  -- 10-bit X bitwise concatenated with 9-bit Y
                         score := to_integer(score_word);
                         
                         -- Now we need to split the score into individual digits and assign to HUD score digit instances
+                        -- we loop over each digit position, extract the digit value, convert to sprite ID and assign to instance
                         for digit_idx in 0 to HUD_SCORE_DIGITS_LEN-1 loop
-                            digit_value := score mod 10;  -- Get least significant digit
-                            score := score / 10;          -- Remove least significant digit
+                            digit_value := score mod 10;  -- Get least significant digit of score integer
+                            score := score / 10;          -- Remove least significant digit of score integer for next iteration
+                            -- Assign to corresponding HUD score digit instance (right to left)
+                            -- Bit of a cursed line:
+                            -- HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx) gives us the correct instance index from left to right.
+                            --      It counts down from HUD_SCORE_DIGITS_I0 + 5 to HUD_SCORE_DIGITS_I0 + 0 as digit_idx goes from 0 to 5.
+                            -- char_to_sprite_id(character'val(character'pos('0') + digit_value)); converts the digit value (0-9) to the corresponding character sprite ID.
+                            --      First we find the character integer value for 0 and add the digit value to get the correct character integer.
+                            --      Then character'val converts that integer back to a character type, which is then passed to char_to_sprite_id to get the sprite ID.
                             tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).sprite_id := char_to_sprite_id(character'val(character'pos('0') + digit_value));
                             tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).visible := '1';
                             tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).x := to_unsigned(HUD_SCORE_DIGITS_X0 + ((HUD_SCORE_DIGITS_LEN-1 - digit_idx) * SPRITE_SIZE), 10);
                             tmp(HUD_SCORE_DIGITS_I0 + (HUD_SCORE_DIGITS_LEN-1 - digit_idx)).y := to_unsigned(HUD_SCORE_DIGITS_Y0, 10);
                         end loop;
                     end if;
-
-
-                    -- -- Bullet down (OBJ ID 6)
-                    -- -- We use instance slot 32 for bullet down
-                    -- -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
-                    -- if obj_ID = 6 then
-                    --     tmp(32).sprite_id := to_unsigned(6, 6);
-                    --     tmp(32).visible := obj_render(0);
-                    --     tmp(32).x := obj_x_pos;
-                    --     tmp(32).y := resize(obj_y_pos, 10);
-                    -- end if;
-
-                    -- -- Bullet up (OBJ ID 7)
-                    -- -- We use instance slot 33 for bullet up
-                    -- -- Visibility is in render bit 0-5 again so we can use any of them, here we use bit 0
-                    -- if obj_ID = 7 then
-                    --     tmp(33).sprite_id := to_unsigned(7, 6);
-                    --     tmp(33).visible := obj_render(0);
-                    --     tmp(33).x := obj_x_pos;
-                    --     tmp(33).y := resize(obj_y_pos, 10);
-                    -- end if;
 
                 end if;
             end if;
@@ -595,10 +597,16 @@ begin
 
             -- Health hearts at upper-left
             lives := to_integer(player_lives_bits);
+
+            -- Render hearts based on lives (0..3)
+            -- Loop over each heart slot
             for i in 0 to HUD_HEARTS_LEN-1 loop
                 tmp(HUD_HEARTS_I0 + i).x         := to_unsigned(HUD_HEARTS_X0 + (i * SPRITE_SIZE), 10);
                 tmp(HUD_HEARTS_I0 + i).y         := to_unsigned(HUD_HEARTS_Y0, 10);
                 tmp(HUD_HEARTS_I0 + i).sprite_id := to_unsigned(8, 6); -- heart sprite index
+
+                -- Show or hide heart based on lives count, if the amount of lives is greater than the heart index, show it
+                -- If lives = 2, we show hearts 0 and 1 (i=0, i=1), hide heart 2 (i=2)
                 if lives > i then
                     tmp(HUD_HEARTS_I0 + i).visible := '1';
                 else
@@ -637,7 +645,7 @@ begin
                 tmp(HUD_OVERLAY_I0 + i).visible := '0';
             end loop;
 
-            -- Show GAME OVER when engine flag is high (no edge latch)
+            -- Show GAME OVER when engine flag is high
             if game_over_active = '1' then
                 tmp(HUD_OVERLAY_I0 + 0).x         := to_unsigned(HUD_GAMEOVER_X0 + (0 * SPRITE_SIZE), 10);
                 tmp(HUD_OVERLAY_I0 + 0).y         := to_unsigned(HUD_OVERLAY_Y0, 10);
@@ -781,6 +789,8 @@ begin
                 tmp(HUD_OVERLAY_I0 + 10).visible   := '1';
             end if;
 
+            -- Commit final render instances with HUD overlay
+            -- This is what gets sent to the sprite renderer process
             render_instances <= tmp;
         end if;
     end process;
