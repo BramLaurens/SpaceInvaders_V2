@@ -3,8 +3,8 @@
 # SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Jan 27 11:33:13 2026
-# Process ID         : 62299
+# Start of session at: Wed Jan 28 18:34:19 2026
+# Process ID         : 192360
 # Current directory  : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1
 # Command line       : vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file           : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/top.vds
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
-# CPU Frequency      : 1987.221 MHz
+# CPU Frequency      : 1988.645 MHz
 # CPU Physical cores : 16
 # CPU Logical cores  : 22
 # Host memory        : 33032 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41622 MB
-# Available Virtual  : 34154 MB
+# Available Virtual  : 30651 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/utils_1/imports/synth_1/vgadriver.dcp
@@ -34,9 +34,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 62368
+INFO: [Synth 8-7075] Helper process launched with PID 192424
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2097.539 ; gain = 440.828 ; free physical = 14204 ; free virtual = 31248
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2097.543 ; gain = 440.828 ; free physical = 5581 ; free virtual = 27867
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:54]
 INFO: [Synth 8-638] synthesizing module 'clk_div_25' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/clk_div_25.vhd:41]
@@ -45,12 +45,12 @@ INFO: [Synth 8-638] synthesizing module 'vga_timing' [/home/bram-laurens/SpaceIn
 INFO: [Synth 8-256] done synthesizing module 'vga_timing' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/vgadriver.vhd:45]
 INFO: [Synth 8-638] synthesizing module 'sprite_renderer' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/sprite_renderer.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'sprite_renderer' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/sprite_renderer.vhd:47]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'uart_bram' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_bram' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-62299-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_bram' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_bram' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-192360-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'command_handler' [/home/bram-laurens/Downloads/command_handler.vhd:41]
 	Parameter data_size bound to: 32 - type: integer 
 	Parameter UART_baudrate bound to: 115200 - type: integer 
@@ -60,45 +60,86 @@ INFO: [Synth 8-638] synthesizing module 'UART_reciever' [/home/bram-laurens/Down
 	Parameter UART_baudrate bound to: 115200 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'UART_reciever' (0#1) [/home/bram-laurens/Downloads/UART_reciever.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'command_handler' (0#1) [/home/bram-laurens/Downloads/command_handler.vhd:41]
-WARNING: [Synth 8-614] signal 'game_instances' is read in the process but is not in the sensitivity list [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:455]
 INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:54]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:332]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:531]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:532]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:536]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:537]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[44][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[45][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[46][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[48][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[51][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:351]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:620]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:621]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:625]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:626]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[42][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[42][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[43][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[43][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[45][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[46][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[51][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:251]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2322.477 ; gain = 665.766 ; free physical = 13998 ; free virtual = 31034
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2283.480 ; gain = 626.766 ; free physical = 5422 ; free virtual = 27706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2322.477 ; gain = 665.766 ; free physical = 13998 ; free virtual = 31034
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2283.480 ; gain = 626.766 ; free physical = 5422 ; free virtual = 27706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2322.477 ; gain = 665.766 ; free physical = 13998 ; free virtual = 31034
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2283.480 ; gain = 626.766 ; free physical = 5422 ; free virtual = 27706
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2322.477 ; gain = 0.000 ; free physical = 13998 ; free virtual = 31034
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2283.480 ; gain = 0.000 ; free physical = 5449 ; free virtual = 27722
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -119,32 +160,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2430.941 ; gain = 0.000 ; free physical = 14017 ; free virtual = 31050
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2388.312 ; gain = 0.000 ; free physical = 5459 ; free virtual = 27732
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2430.977 ; gain = 0.000 ; free physical = 14016 ; free virtual = 31049
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2388.348 ; gain = 0.000 ; free physical = 5459 ; free virtual = 27732
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'uart_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2430.977 ; gain = 774.266 ; free physical = 14032 ; free virtual = 31066
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2388.348 ; gain = 731.633 ; free physical = 5492 ; free virtual = 27766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2438.945 ; gain = 782.234 ; free physical = 14032 ; free virtual = 31066
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2396.316 ; gain = 739.602 ; free physical = 5492 ; free virtual = 27766
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2438.945 ; gain = 782.234 ; free physical = 14032 ; free virtual = 31066
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2396.316 ; gain = 739.602 ; free physical = 5491 ; free virtual = 27765
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2438.945 ; gain = 782.234 ; free physical = 14061 ; free virtual = 31097
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2396.316 ; gain = 739.602 ; free physical = 5537 ; free virtual = 27813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -155,25 +196,25 @@ Detailed RTL Component Info :
 	   3 Input   11 Bit       Adders := 128   
 	   2 Input   10 Bit       Adders := 141   
 	   3 Input    6 Bit       Adders := 128   
-	   2 Input    6 Bit       Adders := 5     
-	   2 Input    5 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 6     
 	   2 Input    4 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 4     
 	               16 Bit    Registers := 2     
-	               10 Bit    Registers := 103   
+	               10 Bit    Registers := 139   
+	                9 Bit    Registers := 53    
 	                8 Bit    Registers := 4     
-	                6 Bit    Registers := 6     
-	                4 Bit    Registers := 36    
+	                6 Bit    Registers := 26    
+	                4 Bit    Registers := 59    
 	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 85    
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 127   
 +---Muxes : 
 	   7 Input   32 Bit        Muxes := 1     
 	   2 Input   32 Bit        Muxes := 6     
 	   2 Input   16 Bit        Muxes := 566   
-	   2 Input   10 Bit        Muxes := 31    
+	   2 Input   10 Bit        Muxes := 30    
 	   4 Input   10 Bit        Muxes := 1     
 	   3 Input   10 Bit        Muxes := 7     
 	   4 Input    9 Bit        Muxes := 4     
@@ -181,7 +222,7 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit        Muxes := 11    
 	   7 Input    3 Bit        Muxes := 2     
 	   2 Input    3 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 1521  
+	   2 Input    1 Bit        Muxes := 1517  
 	   3 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -200,25 +241,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2549.945 ; gain = 893.234 ; free physical = 13959 ; free virtual = 31006
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 2565.316 ; gain = 908.602 ; free physical = 5378 ; free virtual = 27673
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2549.945 ; gain = 893.234 ; free physical = 13962 ; free virtual = 31010
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2565.316 ; gain = 908.602 ; free physical = 5378 ; free virtual = 27673
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 2549.945 ; gain = 893.234 ; free physical = 13963 ; free virtual = 31012
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 2565.316 ; gain = 908.602 ; free physical = 5379 ; free virtual = 27674
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 2563.953 ; gain = 907.242 ; free physical = 13946 ; free virtual = 30996
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 2590.324 ; gain = 933.609 ; free physical = 5243 ; free virtual = 27546
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -236,37 +277,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13949 ; free virtual = 30999
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5137 ; free virtual = 27437
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13949 ; free virtual = 30999
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5137 ; free virtual = 27437
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13941 ; free virtual = 30991
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5146 ; free virtual = 27446
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13941 ; free virtual = 30991
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5146 ; free virtual = 27446
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13941 ; free virtual = 30990
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5151 ; free virtual = 27451
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13941 ; free virtual = 30990
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5151 ; free virtual = 27451
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -311,43 +352,44 @@ Report Cell Usage:
 |4     |blk_mem_gen_1 |     1|
 |5     |uart_bram     |     1|
 |6     |BUFG          |     2|
-|7     |CARRY4        |  1264|
-|8     |LUT1          |   147|
-|9     |LUT2          |  2299|
-|10    |LUT3          |   444|
-|11    |LUT4          |  1518|
-|12    |LUT5          |   473|
-|13    |LUT6          |  1106|
-|14    |SRL16E        |    25|
-|15    |FDRE          |  1383|
-|16    |FDSE          |    16|
-|17    |IBUF          |     2|
-|18    |OBUF          |    14|
+|7     |CARRY4        |  1230|
+|8     |LUT1          |   241|
+|9     |LUT2          |  2228|
+|10    |LUT3          |   583|
+|11    |LUT4          |  1270|
+|12    |LUT5          |   515|
+|13    |LUT6          |  1148|
+|14    |MUXF7         |     4|
+|15    |SRL16E        |    25|
+|16    |FDRE          |  2150|
+|17    |FDSE          |    52|
+|18    |IBUF          |     2|
+|19    |OBUF          |    14|
 +------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.766 ; gain = 932.055 ; free physical = 13941 ; free virtual = 30990
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.262 ; gain = 939.547 ; free physical = 5151 ; free virtual = 27451
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2588.766 ; gain = 823.555 ; free physical = 13941 ; free virtual = 30990
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2588.773 ; gain = 932.055 ; free physical = 13942 ; free virtual = 30992
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 2596.262 ; gain = 834.680 ; free physical = 5151 ; free virtual = 27451
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2596.270 ; gain = 939.547 ; free physical = 5151 ; free virtual = 27451
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2591.734 ; gain = 0.000 ; free physical = 14109 ; free virtual = 31159
-INFO: [Netlist 29-17] Analyzing 1264 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2599.230 ; gain = 0.000 ; free physical = 5323 ; free virtual = 27624
+INFO: [Netlist 29-17] Analyzing 1234 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2653.699 ; gain = 0.000 ; free physical = 14095 ; free virtual = 31145
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2658.227 ; gain = 0.000 ; free physical = 5361 ; free virtual = 27662
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 5397aa18
+Synth Design complete | Checksum: cd287875
 INFO: [Common 17-83] Releasing license: Synthesis
-40 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
+40 Infos, 68 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 2653.734 ; gain = 1127.203 ; free physical = 14087 ; free virtual = 31136
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1982.857; main = 1801.029; forked = 276.228
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3513.816; main = 2653.703; forked = 963.867
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2677.711 ; gain = 0.000 ; free physical = 14087 ; free virtual = 31137
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:42 . Memory (MB): peak = 2658.262 ; gain = 1131.727 ; free physical = 5361 ; free virtual = 27661
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1947.873; main = 1810.581; forked = 276.150
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3529.188; main = 2658.230; forked = 963.867
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00 . Memory (MB): peak = 2682.238 ; gain = 0.000 ; free physical = 5361 ; free virtual = 27662
 INFO: [Common 17-1381] The checkpoint '/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jan 27 11:33:54 2026...
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 28 18:35:04 2026...

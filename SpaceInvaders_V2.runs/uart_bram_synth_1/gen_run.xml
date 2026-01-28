@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="uart_bram_synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1769507106">
-  <File Type="VDS-TIMINGSUMMARY" Name="uart_bram_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="uart_bram.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="uart_bram_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="uart_bram_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="uart_bram_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="uart_bram.vds"/>
   <File Type="REPORTS-TCL" Name="uart_bram_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="uart_bram_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="uart_bram.tcl"/>
+  <File Type="RDS-UTIL" Name="uart_bram_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="uart_bram_utilization_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/uart_bram" RelGenDir="$PGENDIR/uart_bram">
     <File Path="$PSRCDIR/sources_1/ip/uart_bram/uart_bram.xci">
       <FileInfo>
