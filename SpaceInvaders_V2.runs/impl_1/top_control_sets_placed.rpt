@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date         : Wed Jan 28 21:40:06 2026
+| Date         : Thu Jan 29 08:57:13 2026
 | Host         : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -120,9 +120,9 @@ Table of Contents
 |  clk25_out_BUFG | vga_timing_inst/tmp[1][x]                                    |                                                              |               17 |             25 |         1.47 |
 |  clk25_out_BUFG | vga_timing_inst/tmp[13][x]                                   |                                                              |               16 |             26 |         1.62 |
 |  clk_IBUF_BUFG  |                                                              | command_handler_inst/IC1/H_stand_reg[2]_0                    |                7 |             29 |         4.14 |
-| ~clk_IBUF_BUFG  | command_handler_inst/IC1/data_out_hold_0                     |                                                              |               11 |             32 |         2.91 |
 | ~clk_IBUF_BUFG  | command_handler_inst/IC1/bit_cycle_current                   | command_handler_inst/IC1/bit_cycle_current[31]_i_1_n_0       |                8 |             32 |         4.00 |
 | ~clk_IBUF_BUFG  | command_handler_inst/IC1/teller0_inferred__0/i__carry__2_n_0 | command_handler_inst/IC1/bit_current[0]_i_1_n_0              |                8 |             32 |         4.00 |
+| ~clk_IBUF_BUFG  | command_handler_inst/IC1/data_out_hold_0                     |                                                              |               11 |             32 |         2.91 |
 | ~clk_IBUF_BUFG  |                                                              | command_handler_inst/IC1/teller0_inferred__0/i__carry__2_n_0 |                8 |             32 |         4.00 |
 |  clk25_out_BUFG | vga_timing_inst/tmp[53][sprite_id]                           |                                                              |               19 |             33 |         1.74 |
 | ~clk_IBUF_BUFG  |                                                              |                                                              |               13 |             35 |         2.69 |
