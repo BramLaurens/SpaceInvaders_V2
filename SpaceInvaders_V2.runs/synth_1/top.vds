@@ -3,8 +3,8 @@
 # SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Thu Jan 29 08:55:57 2026
-# Process ID         : 535044
+# Start of session at: Thu Jan 29 11:10:16 2026
+# Process ID         : 708914
 # Current directory  : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1
 # Command line       : vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file           : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/top.vds
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
-# CPU Frequency      : 400.000 MHz
+# CPU Frequency      : 1260.524 MHz
 # CPU Physical cores : 16
 # CPU Logical cores  : 22
 # Host memory        : 33032 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41622 MB
-# Available Virtual  : 27612 MB
+# Available Virtual  : 29079 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/utils_1/imports/synth_1/vgadriver.dcp
@@ -32,9 +32,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 535111
+INFO: [Synth 8-7075] Helper process launched with PID 709002
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2096.676 ; gain = 412.094 ; free physical = 7199 ; free virtual = 25039
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2096.336 ; gain = 390.086 ; free physical = 8399 ; free virtual = 26452
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:54]
 INFO: [Synth 8-638] synthesizing module 'clk_div_25' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/clk_div_25.vhd:41]
@@ -43,12 +43,12 @@ INFO: [Synth 8-638] synthesizing module 'vga_timing' [/home/bram-laurens/SpaceIn
 INFO: [Synth 8-256] done synthesizing module 'vga_timing' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/vgadriver.vhd:45]
 INFO: [Synth 8-638] synthesizing module 'sprite_renderer' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/sprite_renderer.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'sprite_renderer' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/sprite_renderer.vhd:47]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'uart_bram' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_bram' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-535044-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/blk_mem_gen_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_bram' [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_bram' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/.Xil/Vivado-708914-bram-laurens-ROG-Zephyrus-G16-GU605MI/realtime/uart_bram_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'command_handler' [/home/bram-laurens/Downloads/command_handler.vhd:41]
 	Parameter data_size bound to: 32 - type: integer 
 	Parameter UART_baudrate bound to: 115200 - type: integer 
@@ -59,87 +59,87 @@ INFO: [Synth 8-638] synthesizing module 'UART_reciever' [/home/bram-laurens/Down
 INFO: [Synth 8-256] done synthesizing module 'UART_reciever' (0#1) [/home/bram-laurens/Downloads/UART_reciever.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'command_handler' (0#1) [/home/bram-laurens/Downloads/command_handler.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:54]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[44][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[45][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[46][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[48][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[51][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:422]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:834]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:835]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:839]
-WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:840]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[39][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[40][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[40][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[41][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[43][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[44][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[48][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
-WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:295]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[39][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[40][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[41][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[42][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[43][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[44][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[45][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[46][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[48][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[51][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[59][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][x] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element game_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:423]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:840]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_top_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:841]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d3_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:845]
+WARNING: [Synth 8-6014] Unused sequential element sprite_pixel_idx_under_d4_reg was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:846]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[39][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[40][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[40][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[41][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[41][sprite_id] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[59][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[60][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[61][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[62][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][y] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[63][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[43][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[44][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[47][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[48][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[49][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[50][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
+WARNING: [Synth 8-6014] Unused sequential element render_instances_reg[52][visible] was removed.  [/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/sources_1/new/top.vhd:296]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2305.215 ; gain = 620.633 ; free physical = 7095 ; free virtual = 24936
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2311.875 ; gain = 605.625 ; free physical = 8183 ; free virtual = 26234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2305.215 ; gain = 620.633 ; free physical = 7108 ; free virtual = 24933
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2311.875 ; gain = 605.625 ; free physical = 8183 ; free virtual = 26234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2305.215 ; gain = 620.633 ; free physical = 7108 ; free virtual = 24933
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2311.875 ; gain = 605.625 ; free physical = 8183 ; free virtual = 26234
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2305.215 ; gain = 0.000 ; free physical = 7134 ; free virtual = 24952
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2311.875 ; gain = 0.000 ; free physical = 8183 ; free virtual = 26234
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -160,99 +160,101 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2395.047 ; gain = 0.000 ; free physical = 7151 ; free virtual = 24968
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2413.707 ; gain = 0.000 ; free physical = 8194 ; free virtual = 26245
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2395.082 ; gain = 0.000 ; free physical = 7151 ; free virtual = 24968
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2413.742 ; gain = 0.000 ; free physical = 8193 ; free virtual = 26244
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'uart_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2395.082 ; gain = 710.500 ; free physical = 7142 ; free virtual = 24937
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2413.742 ; gain = 707.492 ; free physical = 8243 ; free virtual = 26294
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7142 ; free virtual = 24937
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2421.711 ; gain = 715.461 ; free physical = 8243 ; free virtual = 26294
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7142 ; free virtual = 24937
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2421.711 ; gain = 715.461 ; free physical = 8243 ; free virtual = 26294
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-6702] IncrSynth : Design change found in an area of the design that prevents previous synthesis information being used, Reverting to default synthesis
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7168 ; free virtual = 24955
----------------------------------------------------------------------------------
-top__GB5top__GB4top__GB3top__GB2top__GB1sprite_renderer__1---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7147 ; free virtual = 24959
+Finished Doing Graph Differ : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2421.711 ; gain = 715.461 ; free physical = 8245 ; free virtual = 26298
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7130 ; free virtual = 24958
+Finished Preparing Guide Design : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2421.711 ; gain = 715.461 ; free physical = 8245 ; free virtual = 26298
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Mimic Skeleton from Reference
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Mimic Skeleton from Reference : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7129 ; free virtual = 24958
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2421.711 ; gain = 715.461 ; free physical = 8432 ; free virtual = 26437
 ---------------------------------------------------------------------------------
 
 
 Incremental Synthesis Report Summary:
 
-1. Incremental synthesis run: yes
+1. Incremental synthesis run: no
 
-   Stitch points used : changed
-
-
-2. Change Summary
-
-Report Incremental Modules: 
-+-+----------------+------------+----------+----------+
-| |Changed Modules |Replication |Instances |Changed % |
-+-+----------------+------------+----------+----------+
-+-+----------------+------------+----------+----------+
+   Reason for not running incremental synthesis : Design change found in an area of the design that prevents previous synthesis information being used
 
 
-   Full Design Size (number of cells) : 96705
-   Resynthesis Design Size (number of cells) : 0
-   Resynth % : 0.0000,  Reuse % : 100.0000
-
-3. Reference Checkpoint Information
-
-+------------------------------------------------------------------------------------------------------------------+
-| DCP Location:  | /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.srcs/utils_1/imports/synth_1/vgadriver.dcp |
-+------------------------------------------------------------------------------------------------------------------+
-
-
-+--------------------------------+------------------------------+
-|         DCP Information        |             Value            |
-+--------------------------------+------------------------------+
-| Vivado Version                 |                    v2025.1 |
-| DCP State                      |                              |
-+--------------------------------+------------------------------+
-
-
-
-Report RTL Partitions: 
-+------+---------------------------+------------+----------+
-|      |RTL Partition              |Replication |Instances |
-+------+---------------------------+------------+----------+
-|1     |sprite_renderer__1_#REUSE# |           1|         0|
-|2     |top__GB1_#REUSE#           |           1|         0|
-|3     |top__GB2_#REUSE#           |           1|         0|
-|4     |top__GB3_#REUSE#           |           1|         0|
-|5     |top__GB4_#REUSE#           |           1|         0|
-|6     |top__GB5_#REUSE#           |           1|         0|
-+------+---------------------------+------------+----------+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 3     
+	   3 Input   11 Bit       Adders := 128   
+	   2 Input   10 Bit       Adders := 141   
+	   3 Input    6 Bit       Adders := 128   
+	   2 Input    6 Bit       Adders := 6     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 31    
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               30 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 249   
+	                9 Bit    Registers := 14    
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 80    
+	                5 Bit    Registers := 29    
+	                4 Bit    Registers := 35    
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 117   
++---RAMs : 
+	               50 Bit	(5 X 10 bit)          RAMs := 1     
+	               45 Bit	(5 X 9 bit)          RAMs := 1     
++---Muxes : 
+	   7 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 6     
+	   2 Input   30 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 566   
+	   2 Input   10 Bit        Muxes := 890   
+	   4 Input   10 Bit        Muxes := 4     
+	   3 Input    9 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 1     
+	   3 Input    7 Bit        Muxes := 1     
+	   4 Input    6 Bit        Muxes := 3     
+	   2 Input    6 Bit        Muxes := 202   
+	   3 Input    6 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 202   
+	   2 Input    4 Bit        Muxes := 1393  
+	   2 Input    3 Bit        Muxes := 3     
+	   7 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 1846  
+	   3 Input    1 Bit        Muxes := 47    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -268,42 +270,201 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7077] IncrSyn: subsequent runs will still be incremental as the reference run was parallel and that data is reused
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][sprite_id][5]' (FDRE) to 'game_instances_reg[57][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][sprite_id][5]' (FD) to 'render_instances_reg[57][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][0]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][0]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][1]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][1]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][2]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][2]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][3]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][3]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][4]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][4]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][5]' (FDSE) to 'game_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][5]' (FD) to 'render_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][6]' (FDSE) to 'game_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][6]' (FD) to 'render_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][7]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][7]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][8]' (FDRE) to 'game_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][8]' (FD) to 'render_instances_reg[57][x][0]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[58][x][9]' (FDSE) to 'game_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[58][x][9]' (FD) to 'render_instances_reg[57][x][6]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][sprite_id][5]' (FDRE) to 'game_instances_reg[53][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][sprite_id][5]' (FD) to 'render_instances_reg[53][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][0]' (FDRE) to 'game_instances_reg[57][x][1]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][0]' (FD) to 'render_instances_reg[57][x][1]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][1]' (FDRE) to 'game_instances_reg[57][x][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][1]' (FD) to 'render_instances_reg[57][x][2]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][2]' (FDRE) to 'game_instances_reg[57][x][3]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][2]' (FD) to 'render_instances_reg[57][x][3]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][3]' (FDRE) to 'game_instances_reg[57][x][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][3]' (FD) to 'render_instances_reg[57][x][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][4]' (FDRE) to 'game_instances_reg[57][x][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][4]' (FD) to 'render_instances_reg[57][x][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][5]' (FDRE) to 'game_instances_reg[57][x][7]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][5]' (FD) to 'render_instances_reg[57][x][7]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][6]' (FDSE) to 'game_instances_reg[57][x][9]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][6]' (FD) to 'render_instances_reg[57][x][9]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[57][x][7]' (FDRE) to 'game_instances_reg[57][x][8]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[57][x][7]' (FD) to 'render_instances_reg[57][x][8]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[57][x][8] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[57][x][9] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[56][sprite_id][5]' (FDRE) to 'game_instances_reg[53][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[56][sprite_id][5]' (FD) to 'render_instances_reg[53][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[53][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[53][sprite_id][5]' (FD) to 'render_instances_reg[57][x][9]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[32][sprite_id][1]' (FDSE) to 'game_instances_reg[32][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[32][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[32][sprite_id][3]' (FDRE) to 'game_instances_reg[32][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[32][sprite_id][4]' (FDRE) to 'game_instances_reg[32][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[32][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[33][sprite_id][1]' (FDSE) to 'game_instances_reg[33][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[33][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[33][sprite_id][3]' (FDRE) to 'game_instances_reg[33][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[33][sprite_id][4]' (FDRE) to 'game_instances_reg[33][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[33][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[38][sprite_id][1]' (FDSE) to 'game_instances_reg[38][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[38][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[38][sprite_id][3]' (FDRE) to 'game_instances_reg[38][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[38][sprite_id][4]' (FDRE) to 'game_instances_reg[38][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[38][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][0]' (FDR) to 'render_instances_reg[47][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][1]' (FDR) to 'render_instances_reg[47][x][1]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][2]' (FDR) to 'render_instances_reg[47][x][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][3]' (FDR) to 'render_instances_reg[47][x][3]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][4]' (FDS) to 'render_instances_reg[47][x][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][5]' (FDR) to 'render_instances_reg[47][x][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][6]' (FDS) to 'render_instances_reg[47][x][6]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][x][9]' (FDR) to 'render_instances_reg[47][x][9]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\render_instances_reg[57][x][8] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\render_instances_reg[57][x][9] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[44][sprite_id][5]' (FDR) to 'render_instances_reg[42][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[44][sprite_id][4]' (FDS) to 'render_instances_reg[42][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[44][sprite_id][0]' (FDR) to 'render_instances_reg[42][sprite_id][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[50][sprite_id][3]' (FDR) to 'render_instances_reg[49][sprite_id][3]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][0]' (FDR) to 'render_instances_reg[45][x][0]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][1]' (FDR) to 'render_instances_reg[45][x][1]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][2]' (FDR) to 'render_instances_reg[45][x][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][3]' (FDR) to 'render_instances_reg[45][x][3]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][4]' (FDS) to 'render_instances_reg[45][x][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][5]' (FDR) to 'render_instances_reg[45][x][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[47][x][9]' (FDR) to 'render_instances_reg[45][x][9]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[43][sprite_id][3]' (FDR) to 'render_instances_reg[42][sprite_id][3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[22][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[18][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[18][sprite_id][5]' (FD) to 'render_instances_reg[22][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[24][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[24][sprite_id][5]' (FD) to 'render_instances_reg[22][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[55][sprite_id][5]' (FDRE) to 'game_instances_reg[54][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[55][sprite_id][5]' (FD) to 'render_instances_reg[54][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[54][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[37][sprite_id][1]' (FDSE) to 'game_instances_reg[37][sprite_id][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[37][sprite_id][1]' (FD) to 'render_instances_reg[37][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[37][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[37][sprite_id][2]' (FD) to 'render_instances_reg[54][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[37][sprite_id][3]' (FDRE) to 'game_instances_reg[37][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[37][sprite_id][3]' (FD) to 'render_instances_reg[37][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[37][sprite_id][4]' (FDRE) to 'game_instances_reg[37][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[37][sprite_id][4]' (FD) to 'render_instances_reg[37][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[37][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[37][sprite_id][5]' (FD) to 'render_instances_reg[22][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[36][sprite_id][1]' (FDSE) to 'game_instances_reg[36][sprite_id][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[36][sprite_id][1]' (FD) to 'render_instances_reg[36][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[36][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[36][sprite_id][2]' (FD) to 'render_instances_reg[54][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[36][sprite_id][3]' (FDRE) to 'game_instances_reg[36][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[36][sprite_id][3]' (FD) to 'render_instances_reg[36][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[36][sprite_id][4]' (FDRE) to 'game_instances_reg[36][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[36][sprite_id][4]' (FD) to 'render_instances_reg[36][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[36][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[36][sprite_id][5]' (FD) to 'render_instances_reg[22][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[35][sprite_id][1]' (FDSE) to 'game_instances_reg[35][sprite_id][2]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[35][sprite_id][1]' (FD) to 'render_instances_reg[35][sprite_id][2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[35][sprite_id][2] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[35][sprite_id][2]' (FD) to 'render_instances_reg[54][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[35][sprite_id][3]' (FDRE) to 'game_instances_reg[35][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[35][sprite_id][3]' (FD) to 'render_instances_reg[35][sprite_id][4]'
+INFO: [Synth 8-3886] merging instance 'game_instances_reg[35][sprite_id][4]' (FDRE) to 'game_instances_reg[35][sprite_id][5]'
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[35][sprite_id][4]' (FD) to 'render_instances_reg[35][sprite_id][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[35][sprite_id][5] )
+INFO: [Synth 8-3886] merging instance 'render_instances_reg[35][sprite_id][5]' (FD) to 'render_instances_reg[22][sprite_id][5]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[34][sprite_id][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[34][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\render_instances_reg[54][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\render_instances_reg[22][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[20][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[31][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[16][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[30][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[29][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[14][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[12][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[10][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[8][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[28][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[27][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[6][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[26][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[4][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\game_instances_reg[2][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\render_instances_reg[20][sprite_id][5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\game_instances_reg[53][visible] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\render_instances_reg[59][visible] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7090 ; free virtual = 24966
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:49 . Memory (MB): peak = 2449.645 ; gain = 743.395 ; free physical = 3400 ; free virtual = 21433
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Stitch Unchanged AreaOpt Partitions
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+----------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object           | Inference | Size (Depth x Width) | Primitives     | 
++------------+----------------------+-----------+----------------------+----------------+
+|top__GB4    | enemy_prev_x_pos_reg | Implied   | 8 x 10               | RAM16X1S x 10  | 
+|top__GB4    | enemy_prev_y_pos_reg | Implied   | 8 x 9                | RAM16X1S x 9   | 
++------------+----------------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
-Finished Stitch Unchanged AreaOpt Partitions : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2403.051 ; gain = 718.469 ; free physical = 7090 ; free virtual = 24966
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2427.051 ; gain = 742.469 ; free physical = 7090 ; free virtual = 24947
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:00:54 . Memory (MB): peak = 2492.723 ; gain = 786.473 ; free physical = 3519 ; free virtual = 21571
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2427.051 ; gain = 742.469 ; free physical = 7090 ; free virtual = 24947
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:56 . Memory (MB): peak = 2537.770 ; gain = 831.520 ; free physical = 3483 ; free virtual = 21536
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+----------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object           | Inference | Size (Depth x Width) | Primitives     | 
++------------+----------------------+-----------+----------------------+----------------+
+|top__GB4    | enemy_prev_x_pos_reg | Implied   | 8 x 10               | RAM16X1S x 10  | 
+|top__GB4    | enemy_prev_y_pos_reg | Implied   | 8 x 9                | RAM16X1S x 9   | 
++------------+----------------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7077] IncrSyn: subsequent runs will still be incremental as the reference run was parallel and that data is reused
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2435.059 ; gain = 750.477 ; free physical = 7082 ; free virtual = 24939
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Stitch Unchanged Partitions
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Stitch Unchanged Partitions : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2435.059 ; gain = 750.477 ; free physical = 7078 ; free virtual = 24937
+Finished Technology Mapping : Time (s): cpu = 00:00:51 ; elapsed = 00:01:01 . Memory (MB): peak = 2608.695 ; gain = 902.445 ; free physical = 3165 ; free virtual = 21221
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -321,37 +482,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 6935 ; free virtual = 24819
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3127 ; free virtual = 21197
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 6935 ; free virtual = 24819
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3127 ; free virtual = 21197
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 6935 ; free virtual = 24819
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3127 ; free virtual = 21197
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 6935 ; free virtual = 24819
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3127 ; free virtual = 21197
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 7024 ; free virtual = 24900
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3131 ; free virtual = 21200
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 7028 ; free virtual = 24905
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3131 ; free virtual = 21200
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -361,11 +522,11 @@ Static Shift Register Report:
 +------------+---------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name | RTL Name                  | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +------------+---------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|top         | vcount_d4_reg[9]          | 4      | 10    | NO           | NO                 | YES               | 10     | 0       | 
-|top         | hcount_d4_reg[9]          | 4      | 10    | NO           | NO                 | YES               | 10     | 0       | 
 |top         | video_on_d4_reg           | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |top         | sprite_valid_top_d4_reg   | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |top         | sprite_valid_under_d4_reg | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|top         | vcount_d4_reg[9]          | 4      | 10    | NO           | NO                 | YES               | 10     | 0       | 
+|top         | hcount_d4_reg[9]          | 4      | 10    | NO           | NO                 | YES               | 10     | 0       | 
 |top         | VGA_VS_reg                | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |top         | VGA_HS_reg                | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 +------------+---------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
@@ -396,47 +557,47 @@ Report Cell Usage:
 |4     |blk_mem_gen_1 |     1|
 |5     |uart_bram     |     1|
 |6     |BUFG          |     2|
-|7     |CARRY4        |  1263|
-|8     |LUT1          |   697|
-|9     |LUT2          |  2123|
-|10    |LUT3          |   890|
-|11    |LUT4          |  1505|
-|12    |LUT5          |  2267|
-|13    |LUT6          |  3899|
-|14    |MUXF7         |   155|
-|15    |MUXF8         |    17|
+|7     |CARRY4        |  1264|
+|8     |LUT1          |   657|
+|9     |LUT2          |  2149|
+|10    |LUT3          |   893|
+|11    |LUT4          |  1519|
+|12    |LUT5          |  2098|
+|13    |LUT6          |  4484|
+|14    |MUXF7         |   142|
+|15    |MUXF8         |    18|
 |16    |RAM16X1S      |    19|
 |17    |SRL16E        |    25|
-|18    |FDRE          |  3033|
+|18    |FDRE          |  3031|
 |19    |FDSE          |    40|
 |20    |IBUF          |     2|
 |21    |OBUF          |    14|
 +------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2590.879 ; gain = 906.297 ; free physical = 7028 ; free virtual = 24904
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:01:04 . Memory (MB): peak = 2673.594 ; gain = 967.344 ; free physical = 3131 ; free virtual = 21200
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2590.879 ; gain = 816.430 ; free physical = 6989 ; free virtual = 24867
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2590.887 ; gain = 906.297 ; free physical = 6989 ; free virtual = 24867
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:01:04 . Memory (MB): peak = 2677.508 ; gain = 869.391 ; free physical = 8088 ; free virtual = 26158
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 2677.508 ; gain = 971.258 ; free physical = 8088 ; free virtual = 26151
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2590.887 ; gain = 0.000 ; free physical = 6985 ; free virtual = 24853
-INFO: [Netlist 29-17] Analyzing 1454 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2677.508 ; gain = 0.000 ; free physical = 8100 ; free virtual = 26163
+INFO: [Netlist 29-17] Analyzing 1443 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.906 ; gain = 0.000 ; free physical = 6857 ; free virtual = 24781
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2721.617 ; gain = 0.000 ; free physical = 8119 ; free virtual = 26181
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 19 instances were transformed.
   RAM16X1S => RAM32X1S (RAMS32): 19 instances
 
-Synth Design complete | Checksum: f763ca46
+Synth Design complete | Checksum: eba662f7
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 73 Warnings, 0 Critical Warnings and 0 Errors encountered.
+181 Infos, 70 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:26 . Memory (MB): peak = 2646.941 ; gain = 1121.273 ; free physical = 6853 ; free virtual = 24779
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1898.895; main = 1772.553; forked = 275.852
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3448.938; main = 2646.910; forked = 963.867
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2670.918 ; gain = 0.000 ; free physical = 6768 ; free virtual = 24694
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:10 . Memory (MB): peak = 2721.652 ; gain = 1193.293 ; free physical = 8132 ; free virtual = 26194
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 6379.393; main = 1836.801; forked = 4979.072
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 13015.250; main = 2721.621; forked = 10569.520
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2745.629 ; gain = 0.000 ; free physical = 8132 ; free virtual = 26195
 INFO: [Common 17-1381] The checkpoint '/home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/synth_1/top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jan 29 08:56:28 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 29 11:11:30 2026...

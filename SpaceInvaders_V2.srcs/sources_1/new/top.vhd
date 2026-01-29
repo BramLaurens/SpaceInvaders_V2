@@ -206,11 +206,12 @@ architecture RTL of top is
     -- Animation state per row
     signal enemy_anim_up    : std_logic_vector(1 to ENEMY_ROWS) := (others => '0');
 
-    -- Enemy death explosion (briefly render sprite 14 at the enemy's last location)
+    -- Enemy death explosion (animate: small sprite 15 for 4 frames, then big sprite 14 for 4 frames)
     constant ENEMY_INSTANCES : integer := ENEMY_ROWS * ENEMY_COLS;
-    constant EXPLOSION_SPRITE_ID : integer := 14;
-    -- How many frames to show explosion
-    constant EXPLOSION_FRAMES : unsigned(3 downto 0) := to_unsigned(8, 4); -- 8 frames
+    constant EXPLOSION_SPRITE_SMALL_ID : integer := 15;
+    constant EXPLOSION_SPRITE_BIG_ID   : integer := 14;
+    -- How many frames to show explosion (total)
+    constant EXPLOSION_FRAMES : unsigned(3 downto 0) := to_unsigned(12, 4); -- 12 frames
 
     -- Explosion tracking signals
     -- Create an array type with depth ENEMY_INSTANCES and elements of unsigned(3 downto 0) for timers (4 bits for 0..15)
@@ -489,8 +490,13 @@ begin
                         alive_prev_v(enemy_index) := new_visible;
 
                         -- Render: explosion overrides dead enemy instance slot for timer duration as long as timer > 0
+                        -- Timer counts down from EXPLOSION_FRAMES..1, so >4 corresponds to the first 4 frames.
                         if expl_timer_v(enemy_index) /= to_unsigned(0, expl_timer_v(enemy_index)'length) then
-                            tmp(enemy_index).sprite_id := to_unsigned(EXPLOSION_SPRITE_ID, 6);
+                            if expl_timer_v(enemy_index) > to_unsigned(6, expl_timer_v(enemy_index)'length) then
+                                tmp(enemy_index).sprite_id := to_unsigned(EXPLOSION_SPRITE_SMALL_ID, 6);
+                            else
+                                tmp(enemy_index).sprite_id := to_unsigned(EXPLOSION_SPRITE_BIG_ID, 6);
+                            end if;
                             tmp(enemy_index).visible := '1';
                             tmp(enemy_index).x := expl_x_v(enemy_index);
                             tmp(enemy_index).y := expl_y_v(enemy_index);
@@ -517,7 +523,7 @@ begin
                     end if;
 
                     -- Decode bullets (OBJ ID 6-9)
-                    if (obj_ID >= 6) and (obj_ID <= 9) then                         -- Bullets (OBJ_ID 6 t/m 9)
+                    if (obj_ID >= 6) and (obj_ID <= 10) then                         -- Bullets (OBJ_ID 6 t/m 9)
                         -- We use obj_render(1) to distinguish bullet direction: 0 = down, 1 = up
                         if obj_render(1) = '1' then
                             tmp(32 + obj_ID-6).sprite_id := to_unsigned(6, 6);      -- Bullet down

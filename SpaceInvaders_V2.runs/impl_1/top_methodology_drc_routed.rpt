@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
-| Date         : Thu Jan 29 08:57:29 2026
+| Date         : Thu Jan 29 11:12:30 2026
 | Host         : bram-laurens-ROG-Zephyrus-G16-GU605MI running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
 | Design       : top
@@ -4510,132 +4510,132 @@ Related violations: <none>
 
 TIMING-17#896 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[13][y][9]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][sprite_id][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#897 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][sprite_id][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][sprite_id][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#898 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][sprite_id][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][sprite_id][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#899 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][sprite_id][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][sprite_id][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#900 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][sprite_id][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][sprite_id][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#901 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][sprite_id][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][visible]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#902 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][visible]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#903 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#904 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#905 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#906 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#907 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#908 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#909 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#910 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#911 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][x][9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#912 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][x][9]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#913 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#914 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#915 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#916 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#917 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#918 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#919 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#920 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#921 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[14][y][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[14][y][9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#922 Critical Warning
@@ -4765,272 +4765,272 @@ Related violations: <none>
 
 TIMING-17#947 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[15][y][9]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][sprite_id][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#948 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][sprite_id][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][sprite_id][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#949 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][sprite_id][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][sprite_id][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#950 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][sprite_id][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][sprite_id][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#951 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][sprite_id][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][sprite_id][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#952 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][sprite_id][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][visible]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#953 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][visible]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#954 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#955 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#956 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#957 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#958 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#959 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#960 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#961 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#962 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][x][9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#963 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][x][9]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#964 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#965 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#966 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#967 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#968 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#969 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#970 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#971 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[16][y][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#972 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[16][y][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][sprite_id][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#973 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][sprite_id][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][sprite_id][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#974 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][sprite_id][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][sprite_id][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#975 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][sprite_id][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][sprite_id][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#976 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][sprite_id][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][sprite_id][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#977 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][sprite_id][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][visible]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#978 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][visible]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#979 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#980 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#981 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#982 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#983 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#984 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#985 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#986 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#987 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][x][9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#988 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][x][9]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#989 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#990 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#991 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#992 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][3]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#993 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][4]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#994 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][5]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#995 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][6]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#996 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][7]/C is not reached by a timing clock
+The clock pin game_instances_reg[17][y][8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#997 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[17][y][8]/C is not reached by a timing clock
+The clock pin game_instances_reg[18][sprite_id][0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#998 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[18][sprite_id][0]/C is not reached by a timing clock
+The clock pin game_instances_reg[18][sprite_id][1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#999 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[18][sprite_id][1]/C is not reached by a timing clock
+The clock pin game_instances_reg[18][sprite_id][2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#1000 Critical Warning
 Non-clocked sequential cell  
-The clock pin game_instances_reg[18][sprite_id][2]/C is not reached by a timing clock
+The clock pin game_instances_reg[18][sprite_id][3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-18#1 Warning
