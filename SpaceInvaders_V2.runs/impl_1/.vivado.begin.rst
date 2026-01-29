@@ -1,70 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="8563" HostCore="22" HostMemory="32258388">
+    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="669562" HostCore="22" HostMemory="32258372">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="52498" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="87257" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="122997" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="160285" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="167713" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="203855" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="241522" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="279240" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="333604" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="370191" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="416786" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="453838" HostCore="22" HostMemory="32258388">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="490915" HostCore="22" HostMemory="32258388">
+    <Process Command="vivado" Owner="bram-laurens" Host="bram-laurens-ROG-Zephyrus-G16-GU605MI" Pid="709859" HostCore="22" HostMemory="32258372">
     </Process>
 </ProcessHandle>

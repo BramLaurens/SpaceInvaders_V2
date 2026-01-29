@@ -3,8 +3,8 @@
 # SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Tue Jan 13 19:57:58 2026
-# Process ID         : 489913
+# Start of session at: Tue Jan 27 10:45:07 2026
+# Process ID         : 16603
 # Current directory  : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/uart_bram_synth_1
 # Command line       : vivado -log uart_bram.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_bram.tcl
 # Log file           : /home/bram-laurens/SpaceInvaders_V2/SpaceInvaders_V2.runs/uart_bram_synth_1/uart_bram.vds
@@ -13,12 +13,12 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : Intel(R) Core(TM) Ultra 7 155H
-# CPU Frequency      : 1429.821 MHz
+# CPU Frequency      : 1479.156 MHz
 # CPU Physical cores : 16
 # CPU Logical cores  : 22
 # Host memory        : 33032 MB
 # Swap memory        : 8589 MB
 # Total Virtual      : 41622 MB
-# Available Virtual  : 28551 MB
+# Available Virtual  : 33809 MB
 #-----------------------------------------------------------
 source uart_bram.tcl -notrace
